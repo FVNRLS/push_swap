@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/05/28 12:49:58 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/05/28 18:02:43 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@
 
 # include "./libft/libft.h"
 
-typedef struct	s_stack
-{
-	int				nbr;
-	struct s_stack	*next;
-}				t_stack;
+#include "manage_nodes.c"
 
-void		insert_after_node(t_stack *node_to_insert_after, t_stack *newnode);
-void		insert_at_head(t_stack **head, t_stack *node_to_insert);
-t_stack 	*create_new_node(int value);
-void		printlist(t_stack *head);
+// typedef struct	s_list
+// {
+// 	int				nbr;
+// 	struct s_list	*next;
+// }				t_list;
+
+void		insert_after_node(t_list *node_to_insert_after, t_list *newnode);
+void		insert_at_head(t_list **head, t_list *node_to_insert);
+t_list 		*create_new_node(int value);
+void		printlist(t_list *head);
 
 
 
