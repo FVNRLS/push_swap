@@ -6,13 +6,14 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/05/28 18:02:38 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:04:23 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_process_raw_args(int argc, char **argv, t_list **stack_a)
+
+void	ft_process_raw_args(int argc, char **argv, t_list **stack_a, int *error_flag)
 {
 	int i;
 	int	val;
@@ -22,10 +23,9 @@ void	ft_process_raw_args(int argc, char **argv, t_list **stack_a)
 	i = 1;
 	while (i < argc)
 	{
-		val = ft_atoi(argv[i]);
-		tmp = create_new_node(val);
-		// insert_at_head(stack_a, tmp); //TODO: works but in other direction
-		ft_lstadd_back(stack_a, tmp);
+		val = ft_atoi(argv[i], error_flag);
+		tmp = ft_new_node(val);
+		ft_add_back(stack_a, tmp);
 		i++;
 	}
 }
@@ -44,18 +44,19 @@ void	ft_process_raw_args(int argc, char **argv, t_list **stack_a)
 // 	return (stack_a);
 // }
 
-//include c files for testing purposes
-
 int	main(int argc, char **argv)
 {
 	t_list 	*stack_a;
-	t_list	*stack_b;
+	int		error_flag;
+	// t_list	*stack_b;
 
 	stack_a = NULL;
-	stack_b = NULL;
+	// stack_b = NULL;
 	
-
-	ft_process_raw_args(argc, argv, &stack_a);
+	error_flag = 0;
+	ft_process_raw_args(argc, argv, &stack_a, &error_flag);
+	if (ft_input_invalid(error_flag) == 1)
+		return (1);
 	printlist(stack_a);
 	
 	return (0);

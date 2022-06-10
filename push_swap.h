@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/05/28 18:02:43 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:03:36 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@
 # include <stdbool.h>
 # include <stdio.h>
 
-# include "./libft/libft.h"
+typedef struct	s_list
+{
+	int				nbr;
+	struct s_list	*next;
+}				t_list;
+
+t_list 		*ft_new_node(int value);
+t_list		*ft_last_node(t_list *lst);
+void		ft_add_back(t_list **lst, t_list *new);
+void		printlist(t_list *stack); // TODO: delete!
+
+int			ft_atoi(const char *str, int *error_flag);
+int			ft_input_invalid(int error_flag);
+
+
+
 
 #include "manage_nodes.c"
-
-// typedef struct	s_list
-// {
-// 	int				nbr;
-// 	struct s_list	*next;
-// }				t_list;
-
-void		insert_after_node(t_list *node_to_insert_after, t_list *newnode);
-void		insert_at_head(t_list **head, t_list *node_to_insert);
-t_list 		*create_new_node(int value);
-void		printlist(t_list *head);
-
-
-
-
+#include "manage_args.c"
 
 #endif
