@@ -1,34 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 21:49:29 by rmazurit         ###   ########.fr       */
+/*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
+/*   Updated: 2022/06/10 21:34:51 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	main(int argc, char **argv)
-{
-	t_list 	*stack_a;
-	// t_list	*stack_b;
-
-	stack_a = NULL;
-	// stack_b = NULL;
-	
-	if (ft_create_stack(argc, argv, &stack_a) == false)
-		return (1);
-	else if (ft_duplicates_found(stack_a) == true)
-		return (1);
-	else
-		printlist(stack_a);
-	
-	
-	// system("leaks a.out");
-	return (0);
-}
 
