@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:31:06 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 13:34:28 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:01:04 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_add_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	tmp = ft_last_node(*lst);
+	tmp = ft_last_node(*lst); //set the pointer to the last node and assign the new element to the last node
 	tmp->next = new;
 }
 

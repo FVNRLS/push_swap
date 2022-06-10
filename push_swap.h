@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 15:03:36 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:22:45 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,37 @@
 # include <stdbool.h>
 # include <stdio.h>
 
+# define DELIMETER ' '
+
 typedef struct	s_list
 {
 	int				nbr;
 	struct s_list	*next;
 }				t_list;
 
+/* LIST MANAGEMENT*/
 t_list 		*ft_new_node(int value);
 t_list		*ft_last_node(t_list *lst);
 void		ft_add_back(t_list **lst, t_list *new);
 void		printlist(t_list *stack); // TODO: delete!
 
-int			ft_atoi(const char *str, int *error_flag);
-int			ft_input_invalid(int error_flag);
+/* ARGUMENTS MANAGEMENT (processing, checking)*/
+bool		ft_create_stack(int argc, char **argv, t_list **stack);
+bool		ft_input_invalid(bool error_flag);
+bool		ft_duplicates_found(t_list *stack);
 
+/* TOOLS */
+unsigned int	ft_strlen(char *s);
+char			**ft_split(char *s, char c);
+int		ft_atoi(const char *str, bool *error_flag);
 
 
 
 #include "manage_nodes.c"
 #include "manage_args.c"
+#include "./tools/ft_split.c"
+#include "./tools/ft_strlen.c"
+#include "./tools/ft_atoi.c"
+
 
 #endif

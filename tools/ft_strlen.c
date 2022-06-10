@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 19:19:50 by rmazurit         ###   ########.fr       */
+/*   Created: 2022/03/22 12:03:11 by rmazurit          #+#    #+#             */
+/*   Updated: 2022/06/10 15:29:37 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/* The function takes a string as an argument and returns its length. 
+The returned value is an unsigned integer type. */
 
-int	main(int argc, char **argv)
+unsigned int	ft_strlen(char *s)
 {
-	t_list 	*stack_a;
-	t_list	*stack_b;
+	unsigned int	i;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	
-	if (ft_create_stack(argc, argv, &stack_a) == false)
-		return (1);
-	else if (ft_duplicates_found(stack_a) == true)
-		return (1);
-	else
-		printlist(stack_a);
-	
-	
-	// system("leaks a.out");
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
-

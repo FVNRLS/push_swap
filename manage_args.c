@@ -6,60 +6,108 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 15:09:00 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:18:14 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	ft_is_number(char c)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i] != '\0')
-// 	{
-		
-// 	}
-// 	return (1);
-// }
-
-int	ft_atoi(const char *str, int *error_flag)
+void	ft_process_raw_args(int argc, char **argv, t_list **stack, bool *error_flag)
 {
-	int	i;
-	int	sign;
-	int	res;
+	int i;
+	int	val;
+	t_list	*tmp;
 
-	i = 0;
-	sign = 1;
-	res = 0;
-	if (str[i] == '-')
+	tmp = NULL;
+	i = 1;
+	while (i < argc)
 	{
-		sign *= (-1);
+		val = ft_atoi(argv[i], error_flag);
+		tmp = ft_new_node(val);
+		ft_add_back(stack, tmp);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0')
-	{
-		if (str[i] <= '9' && str[i] >= '0')
-			res = (str[i] - '0') + (res * 10);
-		else
-		{
-			*error_flag = 1;
-			return (1);
-		}
-		i++;
-	}
-	return (res * sign);
 }
 
-int	ft_input_invalid(int error_flag)
+void	ft_process_split_args(char **argv, t_list **stack, bool *error_flag)
 {
-	if (error_flag == 1)
+	t_list	*tmp;
+	char	**split;
+	int		val;
+	int		i;
+
+	tmp = NULL;
+	*stack = NULL;
+	split = ft_split(argv[1], DELIMETER);
+	i = 0;
+	while (split[i] != NULL)
 	{
-		write (1, "Error! Invalid arguments provided.\n", 35);
-		return (1);
+		val = ft_atoi(split[i], error_flag);		
+		tmp = ft_new_node(val);
+		ft_add_back(stack, tmp);
+		i++;
 	}
-	return (0);
+	i = 0;
+	while (split[i] != NULL)
+	{
+		free(split[i]);
+		split[i] = NULL;
+		i++;
+	}
+	free(split);
+	split = NULL;
+}
+
+bool	ft_create_stack(int argc, char **argv, t_list **stack)
+{
+	bool	error_flag;
+	
+	error_flag = false;
+	if (argc > 2)
+		ft_process_raw_args(argc, argv, stack, &error_flag);
+	else if (argc == 2)
+		ft_process_split_args(argv, stack, &error_flag);
+	else
+	{
+		write(1, "Input some arguments!\n", 22);
+		return (false);
+	}
+	if (ft_input_invalid(error_flag) == true)
+		return (false);
+	return (true);
+}
+
+
+bool	ft_input_invalid(bool error_flag)
+{
+	if (error_flag == true)
+	{
+		write (1, "\nError! Invalid arguments found!\n\n", 37);
+		return (true);
+	}
+	return (false);
+}
+
+bool	ft_duplicates_found(t_list *stack)
+{
+	t_list	*pos;
+	t_list	*next_node;
+	
+	pos = stack;
+	next_node = pos;
+	while (pos != NULL)
+	{
+		while (next_node->next != NULL)
+		{
+			next_node = next_node->next;
+			if (pos->nbr == next_node->nbr)
+			{
+				write(1, "\nError! Duplicated arguments found!\n\n", 38);
+				return (true);
+			}
+		}
+		next_node = pos->next;
+		pos = pos->next;
+	}
+	return (false);
 }

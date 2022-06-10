@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 19:19:50 by rmazurit         ###   ########.fr       */
+/*   Created: 2022/06/10 19:15:31 by rmazurit          #+#    #+#             */
+/*   Updated: 2022/06/10 19:15:58 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdbool.h>
 
-int	main(int argc, char **argv)
+int	ft_atoi(const char *str, bool *error_flag)
 {
-	t_list 	*stack_a;
-	t_list	*stack_b;
+	int	i;
+	int	sign;
+	int	res;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	
-	if (ft_create_stack(argc, argv, &stack_a) == false)
-		return (1);
-	else if (ft_duplicates_found(stack_a) == true)
-		return (1);
-	else
-		printlist(stack_a);
-	
-	
-	// system("leaks a.out");
-	return (0);
+	i = 0;
+	sign = 1;
+	res = 0;
+	if (str[i] == '-')
+	{
+		sign *= (-1);
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0')
+	{
+		if (str[i] <= '9' && str[i] >= '0')
+			res = (str[i] - '0') + (res * 10);
+		else
+		{
+			*error_flag = true;
+			return (1);
+		}
+		i++;
+	}
+	return (res * sign);
 }
-
