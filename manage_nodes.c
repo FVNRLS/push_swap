@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:31:06 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 16:01:04 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 23:06:39 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ void	ft_add_back(t_list **lst, t_list *new)
 
 void	printlist(t_list *stack) //TODO: rewrite without printf!
 {
-	t_list *tmp = stack;
+	t_list *tmp;
 	
+	if (!stack)
+		return ;
+	tmp = stack;
 	printf("\nSTACK A:\n");
 	while (tmp->next != NULL)
 	{

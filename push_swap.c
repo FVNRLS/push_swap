@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 21:49:29 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 23:11:03 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_list 	*stack_a;
-	// t_list	*stack_b;
+	t_list	*stack_b;
 
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	
 	if (ft_create_stack(argc, argv, &stack_a) == false)
 		return (1);
@@ -27,8 +27,24 @@ int	main(int argc, char **argv)
 	else
 		printlist(stack_a);
 	
+
+	/* TESTING INSTRUCTIONS */
+	printf("\nSA:\n");
+	sa(&stack_a, argc);
+	printlist(stack_a);
+	
+	printf("\nSB:\n");
+	sb(&stack_b, argc);
+	printlist(stack_b);
+	
+	printf("\nSS:\n");
+	sb(&stack_b, argc);
+	printlist(stack_a);
+	printlist(stack_b);
 	
 	// system("leaks a.out");
 	return (0);
 }
 
+
+//TODO: change error message to "Error"!

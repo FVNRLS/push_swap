@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 19:22:45 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/10 23:05:24 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,20 @@ unsigned int	ft_strlen(char *s);
 char			**ft_split(char *s, char c);
 int		ft_atoi(const char *str, bool *error_flag);
 
+/* INSCTRUCTIONS */
+void	sa(t_list **stack, int argc);
+void	sb(t_list **stack, int argc);
+void	ss(t_list **stack_a, t_list **stack_b, int argc);
 
 
-#include "manage_nodes.c"
-#include "manage_args.c"
-#include "./tools/ft_split.c"
-#include "./tools/ft_strlen.c"
-#include "./tools/ft_atoi.c"
+
+/*TODO: DELETE!!!*/
+# include "manage_nodes.c"
+# include "manage_args.c"
+# include "./tools/ft_split.c"
+# include "./tools/ft_strlen.c"
+# include "./tools/ft_atoi.c"
+# include "./instructions/swap.c"
 
 
 #endif
