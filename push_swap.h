@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 23:05:24 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 00:15:38 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_list
 t_list 		*ft_new_node(int value);
 t_list		*ft_last_node(t_list *lst);
 void		ft_add_back(t_list **lst, t_list *new);
-void		printlist(t_list *stack); // TODO: delete!
+void		printlist(t_list *stack_a, t_list *stack_b); // TODO: delete!
 
 /* ARGUMENTS MANAGEMENT (processing, checking)*/
 bool		ft_create_stack(int argc, char **argv, t_list **stack);
@@ -47,6 +47,7 @@ int		ft_atoi(const char *str, bool *error_flag);
 void	sa(t_list **stack, int argc);
 void	sb(t_list **stack, int argc);
 void	ss(t_list **stack_a, t_list **stack_b, int argc);
+void	pa(t_list **stack_a, t_list **stack_b);
 
 
 
@@ -56,7 +57,7 @@ void	ss(t_list **stack_a, t_list **stack_b, int argc);
 # include "./tools/ft_split.c"
 # include "./tools/ft_strlen.c"
 # include "./tools/ft_atoi.c"
-# include "./instructions/swap.c"
+# include "./instructions/push_swap.c"
 
 
 #endif

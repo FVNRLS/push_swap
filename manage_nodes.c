@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:31:06 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 23:06:39 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 01:07:58 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,33 @@ void	ft_add_back(t_list **lst, t_list *new)
 	tmp->next = new;
 }
 
-void	printlist(t_list *stack) //TODO: rewrite without printf!
+void	printlist(t_list *stack_a, t_list *stack_b) //TODO: rewrite without printf!
 {
-	t_list *tmp;
+	t_list *tmp_a;
+	t_list *tmp_b;
 	
-	if (!stack)
+	if (!stack_a && !stack_b)
 		return ;
-	tmp = stack;
-	printf("\nSTACK A:\n");
-	while (tmp->next != NULL)
+	tmp_a = stack_a;
+	tmp_b = stack_b;
+	printf("\nSTACK A:	STACK B:\n");
+	while (tmp_a->next != NULL)
 	{
-		printf("%d\n", tmp->nbr);
-		tmp = tmp->next;
+		if (tmp_a->next != NULL)
+		{
+			printf("%d", tmp_a->nbr);
+			tmp_a = tmp_a->next;
+		}
+		if (tmp_b != NULL)
+		{
+			printf("		%d", tmp_b->nbr);
+			tmp_b = tmp_b->next;
+		}
+		printf("\n");
 	}
-	printf("%d\n", tmp->nbr);
+	printf("%d", tmp_a->nbr);
+	if (tmp_b != NULL)
+		printf("		%d", tmp_b->nbr);
+	printf("\n");
 }
 
