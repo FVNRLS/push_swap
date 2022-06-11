@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 15:21:05 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:02:34 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ t_list		*ft_last_node(t_list *lst);
 void		ft_add_back(t_list **lst, t_list *new);
 void		ft_add_front(t_list **lst, t_list *new);
 
-/* TESTING TODO: delete before submission!*/
-bool		ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv);
-void		printlist(t_list **stack_a, t_list **stack_b);
 
 /* ARGUMENTS MANAGEMENT (processing, checking)*/
 bool		ft_create_stack(int argc, char **argv, t_list **stack);
@@ -59,6 +56,20 @@ void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
+/* SORTING */
+bool	ft_stack_a_sorted(t_list *stack_a);
+bool	ft_stack_b_sorted(t_list *stack_b);
+int		ft_find_max(t_list *stack);
+int		ft_find_node(t_list *stack, int to_find);
+int		ft_list_size(t_list *stack);
+
+
+
+
+/* TESTING TODO: delete before submission!*/
+bool		ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv);
+void		printlist(t_list **stack_a, t_list **stack_b);
+void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 
 /*TODO: DELETE!!!*/
 # include "manage_nodes.c"
@@ -70,6 +81,7 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 # include "./instructions/rotate.c"
 # include "./instructions/reverse_rotate.c"
 # include "testing_func.c"
+# include "./sort/check_init.c"
 
 
 #endif

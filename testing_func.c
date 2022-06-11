@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 15:23:05 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:04:13 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 		tmp->nbr += 10;
 		tmp = tmp->next;
 	}
+
+	// PRINT INIT STATUS
+	printf("\nINIT STATUS:");
+	printlist(stack_a, stack_b);
+
 	//****************************************************
 
-	/* TESTING INSTRUCTIONS */
+	/* TESTING INSTRUCTIONS
 	printf("\nsa:");
 	sa(stack_a, argc);
 	printlist(stack_a, stack_b);
@@ -71,7 +76,20 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 
 	printf("\nrrr:");
 	rrr(stack_a, stack_b);
-	printlist(stack_a, stack_b);
+	printlist(stack_a, stack_b); */
+
+	/* SORT CHECK */
+	ft_check_sort(*stack_a, *stack_b);
+
+	/* FIND MAX CHECK */
+	printf("\nThe maximum STACK A:		%d", ft_find_max(*stack_a));
+	printf("\nThe maximum STACK B:		%d\n", ft_find_max(*stack_b));
+
+	/* POSITION CHECK */
+	printf ("The list size is:		%d\n",ft_list_size(*stack_a));
+	printf ("The position of the max:	%d\n",ft_find_node(*stack_a, ft_find_max(*stack_a)));
+
+	
 
 	system("leaks a.out");
 	return (true);
@@ -100,4 +118,12 @@ void	printlist(t_list **stack_a, t_list **stack_b) //TODO: rewrite without print
 		printf("\n");
 	}
 	printf("\n");
+}
+
+void	ft_check_sort(t_list *stack_a, t_list *stack_b)
+{
+	if (ft_stack_a_sorted(stack_a) == true)
+		printf("\nStack A is sorted\n");
+	if (ft_stack_b_sorted(stack_b) == true)
+		printf("\nStack B is sorted\n");
 }
