@@ -1,57 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_init.c                                       :+:      :+:    :+:   */
+/*   finders.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/11 17:28:35 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 19:01:47 by rmazurit         ###   ########.fr       */
+/*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
+/*   Updated: 2022/06/11 19:26:40 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	ft_stack_a_sorted(t_list *stack_a)
+int	ft_find_min(t_list *stack)
 {
-	if (!stack_a->next || !stack_a)
-		return (false);
-	while (stack_a->next != NULL)
-	{
-		if (stack_a->nbr > stack_a->next->nbr)
-			return (false);
-		stack_a = stack_a->next;
-	}
-	return (true);
-}
-
-bool	ft_stack_b_sorted(t_list *stack_b)
-{
-	if (!stack_b->next || !stack_b)
-		return (false);
-	while (stack_b->next != NULL)
-	{
-		if (stack_b->nbr < stack_b->next->nbr)
-			return (false);
-		stack_b = stack_b->next;
-	}
-	return (true);
-}
-
-int	ft_find_max(t_list *stack)
-{
-	int	max;
+	int	min;
 	
 	if (!stack || !stack->next)
-		return (INT_MIN);
-	max = stack->nbr;
+		return (INT_MAX);
+	min = stack->nbr;
 	while (stack != NULL)
 	{
-		if (stack->nbr > max)
-			max = stack->nbr;
+		if (stack->nbr < min)
+			min = stack->nbr;
 		stack = stack->next;
 	}
-	return (max);
+	return (min);
 }
 
 /*
@@ -74,21 +48,4 @@ int	ft_find_node(t_list *stack, int to_find)
 		pos++;
 	}
 	return (0);
-}
-
-int	ft_list_size(t_list *stack)
-{
-	int	size;
-
-	if (!stack)
-		return (0);
-	if (!stack->next)
-		return(1);
-	size = 0;
-	while (stack != NULL)
-	{
-		stack = stack->next;
-		size++;
-	}
-	return (size);
 }

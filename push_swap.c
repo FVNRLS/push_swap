@@ -6,16 +6,13 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 18:50:34 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:59:40 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*	TODO: 
-	2) Find max
-	3) Find min
 	3) Find place to insert
 	4) Count operations
-	5) search element in the list
 
 	in the end free all stacks!
 	//TODO: change error message to "Error"!

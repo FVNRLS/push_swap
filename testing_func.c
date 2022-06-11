@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 19:04:13 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 20:08:13 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,17 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 	/* SORT CHECK */
 	ft_check_sort(*stack_a, *stack_b);
 
-	/* FIND MAX CHECK */
-	printf("\nThe maximum STACK A:		%d", ft_find_max(*stack_a));
-	printf("\nThe maximum STACK B:		%d\n", ft_find_max(*stack_b));
+	/* FIND MIN CHECK */
+	printf("\nThe min of STACK A:		%d", ft_find_min(*stack_a));
+	printf("\nThe min of STACK B:		%d\n", ft_find_min(*stack_b));
 
 	/* POSITION CHECK */
 	printf ("The list size is:		%d\n",ft_list_size(*stack_a));
-	printf ("The position of the max:	%d\n",ft_find_node(*stack_a, ft_find_max(*stack_a)));
+	printf ("The position of the min:	%d\n",ft_find_node(*stack_a, ft_find_min(*stack_a)));
 
 	
 
-	system("leaks a.out");
+	// system("leaks a.out");
 	return (true);
 }
 
@@ -123,7 +123,7 @@ void	printlist(t_list **stack_a, t_list **stack_b) //TODO: rewrite without print
 void	ft_check_sort(t_list *stack_a, t_list *stack_b)
 {
 	if (ft_stack_a_sorted(stack_a) == true)
-		printf("\nStack A is sorted\n");
+		printf("Stack A is sorted\n");
 	if (ft_stack_b_sorted(stack_b) == true)
-		printf("\nStack B is sorted\n");
+		printf("Stack B is sorted\n");
 }

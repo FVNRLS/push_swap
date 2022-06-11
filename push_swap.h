@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 19:02:34 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:51:40 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,19 @@ void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 /* SORTING */
+/* LIST CHECKERS */
 bool	ft_stack_a_sorted(t_list *stack_a);
 bool	ft_stack_b_sorted(t_list *stack_b);
-int		ft_find_max(t_list *stack);
+/* FINDERS */
+int		ft_find_min(t_list *stack);
 int		ft_find_node(t_list *stack, int to_find);
+/* COUNTERS */
 int		ft_list_size(t_list *stack);
+int		ft_distance_to_start(int pos);
+int		ft_distance_to_end(t_list *stack, int pos);
+/* SORTERS */
+void	ft_sort_to_top(t_list **stack);
+void	ft_sort_to_bottom(t_list **stack);
 
 
 
@@ -81,7 +89,10 @@ void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 # include "./instructions/rotate.c"
 # include "./instructions/reverse_rotate.c"
 # include "testing_func.c"
-# include "./sort/check_init.c"
+# include "./sort/list_checkers.c"
+# include "./sort/finders.c"
+# include "./sort/counters.c"
+# include "./sort/sorters.c"
 
 
 #endif
