@@ -3,21 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   sorters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:32:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 19:55:04 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:40:56 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// void	ft_sort_to_top(t_list **stack)
-// {
-	
-// }
-
-// void	ft_sort_to_bottom(t_list **stack)
-// {
-	
-// }

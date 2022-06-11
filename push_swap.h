@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 19:51:40 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 00:05:49 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,20 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 /* LIST CHECKERS */
 bool	ft_stack_a_sorted(t_list *stack_a);
 bool	ft_stack_b_sorted(t_list *stack_b);
+bool	ft_stack_is_small(int argc);
+bool	ft_stack_is_medium(int argc);
+bool	ft_stack_is_big(int argc);
+
 /* FINDERS */
 int		ft_find_min(t_list *stack);
 int		ft_find_node(t_list *stack, int to_find);
 /* COUNTERS */
 int		ft_list_size(t_list *stack);
-int		ft_distance_to_start(int pos);
-int		ft_distance_to_end(t_list *stack, int pos);
+
 /* SORTERS */
-void	ft_sort_to_top(t_list **stack);
-void	ft_sort_to_bottom(t_list **stack);
+
+/* ALGORITHMS */
+int		ft_sort_small(t_list **stack_a, t_list **stack_b);
 
 
 
@@ -93,6 +97,7 @@ void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 # include "./sort/finders.c"
 # include "./sort/counters.c"
 # include "./sort/sorters.c"
+# include "./sort/algorithms.c"
 
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   counters.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:18:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 19:46:23 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:59:12 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,4 @@ int	ft_list_size(t_list *stack)
 		size++;
 	}
 	return (size);
-}
-
-int	ft_distance_to_start(int pos)
-{
-	return (pos - 1);
-}
-
-int	ft_distance_to_end(t_list *stack, int pos)
-{
-	int	end;
-	
-	end = ft_list_size(stack);
-	return(end - pos);
 }

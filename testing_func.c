@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testing_func.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 20:08:13 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 00:07:01 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 		tmp->nbr += 10;
 		tmp = tmp->next;
 	}
-
-	// PRINT INIT STATUS
-	printf("\nINIT STATUS:");
-	printlist(stack_a, stack_b);
 
 	//****************************************************
 
