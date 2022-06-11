@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 00:15:38 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 15:21:05 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ typedef struct	s_list
 t_list 		*ft_new_node(int value);
 t_list		*ft_last_node(t_list *lst);
 void		ft_add_back(t_list **lst, t_list *new);
-void		printlist(t_list *stack_a, t_list *stack_b); // TODO: delete!
+void		ft_add_front(t_list **lst, t_list *new);
+
+/* TESTING TODO: delete before submission!*/
+bool		ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv);
+void		printlist(t_list **stack_a, t_list **stack_b);
 
 /* ARGUMENTS MANAGEMENT (processing, checking)*/
 bool		ft_create_stack(int argc, char **argv, t_list **stack);
@@ -41,14 +45,19 @@ bool		ft_duplicates_found(t_list *stack);
 /* TOOLS */
 unsigned int	ft_strlen(char *s);
 char			**ft_split(char *s, char c);
-int		ft_atoi(const char *str, bool *error_flag);
+int				ft_atoi(const char *str, bool *error_flag);
 
 /* INSCTRUCTIONS */
 void	sa(t_list **stack, int argc);
 void	sb(t_list **stack, int argc);
 void	ss(t_list **stack_a, t_list **stack_b, int argc);
 void	pa(t_list **stack_a, t_list **stack_b);
-
+void	ra(t_list **stack);
+void	rb(t_list **stack);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rra(t_list **stack);
+void	rrb(t_list **stack);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 
 /*TODO: DELETE!!!*/
@@ -58,6 +67,9 @@ void	pa(t_list **stack_a, t_list **stack_b);
 # include "./tools/ft_strlen.c"
 # include "./tools/ft_atoi.c"
 # include "./instructions/push_swap.c"
+# include "./instructions/rotate.c"
+# include "./instructions/reverse_rotate.c"
+# include "testing_func.c"
 
 
 #endif

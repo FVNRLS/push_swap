@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 01:06:06 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:01:37 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,29 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	
 	if (!*stack_b)
 		return ;
-	tmp = ft_new_node(0);
-	tmp->nbr = (*stack_a)->nbr;
-	(*stack_a)->nbr = (*stack_b)->nbr;
-	tmp->next = (*stack_a)->next;
-	(*stack_a)->next = tmp;
+	tmp = ft_new_node((*stack_b)->nbr);
+	ft_add_front(stack_a, tmp);
+	tmp = *stack_b;	//freeing the lost unused node
+	free(tmp);
+	tmp = NULL;
 	*stack_b = (*stack_b)->next;
+}
+
+/* 	Push b: 
+	Take the first element at the top of a and put it at the top of b.
+	Do nothing if a is empty. 
+*/
+void	pb(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+	
+	if (!*stack_a)
+		return ;
+	tmp = ft_new_node((*stack_a)->nbr);
+	ft_add_front(stack_b, tmp);
+	tmp = *stack_a;	//freeing the lost unused node
+	free(tmp);
+	tmp = NULL;
+	*stack_a = (*stack_a)->next;
 }
 

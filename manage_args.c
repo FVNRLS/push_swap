@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 19:18:14 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 13:15:42 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ bool	ft_input_invalid(bool error_flag)
 {
 	if (error_flag == true)
 	{
-		write (1, "\nError! Invalid arguments found!\n\n", 37);
+		write (1, "\nError! Invalid arguments found!\n", 35);
 		return (true);
 	}
 	return (false);

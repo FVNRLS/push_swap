@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:31:06 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 01:07:58 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:51:57 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,33 +46,26 @@ void	ft_add_back(t_list **lst, t_list *new)
 	tmp->next = new;
 }
 
-void	printlist(t_list *stack_a, t_list *stack_b) //TODO: rewrite without printf!
+void	ft_add_front(t_list **lst, t_list *new)
 {
-	t_list *tmp_a;
-	t_list *tmp_b;
-	
-	if (!stack_a && !stack_b)
+	if (!new)
 		return ;
-	tmp_a = stack_a;
-	tmp_b = stack_b;
-	printf("\nSTACK A:	STACK B:\n");
-	while (tmp_a->next != NULL)
+	if (!lst)
 	{
-		if (tmp_a->next != NULL)
-		{
-			printf("%d", tmp_a->nbr);
-			tmp_a = tmp_a->next;
-		}
-		if (tmp_b != NULL)
-		{
-			printf("		%d", tmp_b->nbr);
-			tmp_b = tmp_b->next;
-		}
-		printf("\n");
+		*lst = new;
+		return ;
 	}
-	printf("%d", tmp_a->nbr);
-	if (tmp_b != NULL)
-		printf("		%d", tmp_b->nbr);
-	printf("\n");
+	new->next = *lst;
+	*lst = new;
 }
 
+void	ft_del_last(t_list **stack)
+{
+	t_list	*tmp;
+
+	tmp = *stack;
+	while (tmp->next->next != NULL)
+		tmp = tmp->next;
+	free(tmp->next);
+	tmp->next = NULL;
+}
