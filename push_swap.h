@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 14:24:27 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 15:08:56 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ bool	ft_stack_is_big(int argc);
 /* FINDERS */
 int		ft_find_min(t_list *stack);
 int		ft_find_node(t_list *stack, int to_find);
+int		ft_find_middle(int size);
+
 /* COUNTERS */
 int		ft_list_size(t_list *stack);
 
@@ -77,6 +79,7 @@ int		ft_list_size(t_list *stack);
 /* ALGORITHMS */
 int		ft_sort_small(t_list **stack_a, t_list **stack_b, int argc);
 void	ft_apply_cases(t_list **stack, int argc, int *cnt);
+void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt);
 void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b, int *cnt);
 
 

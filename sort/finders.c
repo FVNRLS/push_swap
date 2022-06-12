@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finders.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 00:03:00 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 15:00:40 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,15 @@ int	ft_find_node(t_list *stack, int to_find)
 		pos++;
 	}
 	return (0);
+}
+
+int	ft_find_middle(int size)
+{
+	int	mid;
+	
+	if (size % 2 == 0)
+		mid = size / 2;
+	else
+		mid = (size / 2) + 1;
+	return (mid);
 }
