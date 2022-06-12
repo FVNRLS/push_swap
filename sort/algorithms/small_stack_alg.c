@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:51:17 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 15:08:32 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 15:12:18 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,14 @@ void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt)
 		min = ft_find_min(*stack_a);
 		mid = ft_find_middle(size);
 		pos = ft_find_node(*stack_a, min);
-		if (pos <= mid)
+		while (pos != 1)
 		{
-			while (pos != 1)
+			if (pos <= mid)
 			{
 				ra(stack_a, cnt);
 				pos = ft_find_node(*stack_a, min);
 			}
-		}
-		else if (pos > mid)
-		{
-			while (pos != 1)
+			else if (pos > mid)
 			{
 				rra(stack_a, cnt);
 				pos = ft_find_node(*stack_a, min);
