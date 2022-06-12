@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:51:17 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 15:27:06 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 19:28:58 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int	ft_sort_small(t_list **stack_a, t_list **stack_b, int argc)
 		return (cnt);
 	ft_sort_to_b(stack_a, stack_b, &cnt);
 	if (ft_stack_a_sorted(*stack_a) == false)
-		ft_apply_cases(stack_a, argc, &cnt);
+		ft_sort_last_3(stack_a, argc, &cnt);
 	ft_push_back_to_a(stack_a, stack_b, &cnt);
+	
 	//TODO: delete!
 	printlist(stack_a, stack_b);
 	printf("\nTotal Counter:	%d\n", cnt);
@@ -75,7 +76,7 @@ void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt)
 	case4 : [1,3,2]	->	sa	->	[3,1,2]	->	ra	->	[1,2,3].
 	case5 : [2,3,1]	->	rra	->	[1,2,3].
 */
-void	ft_apply_cases(t_list **stack, int argc, int *cnt)
+void	ft_sort_last_3(t_list **stack, int argc, int *cnt)
 {
 	int	n_1;
 	int	n_2;

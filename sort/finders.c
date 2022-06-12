@@ -6,12 +6,15 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 15:00:40 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 19:18:36 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
+	Find the smallest element in the stack and return it's value.
+*/
 int	ft_find_min(t_list *stack)
 {
 	int	min;
@@ -22,6 +25,25 @@ int	ft_find_min(t_list *stack)
 	while (stack != NULL)
 	{
 		if (stack->nbr < min)
+			min = stack->nbr;
+		stack = stack->next;
+	}
+	return (min);
+}
+
+/*
+	Find the biggest element in the stack and return it's value.
+*/
+int	ft_find_max(t_list *stack)
+{
+	int	min;
+	
+	if (!stack || !stack->next)
+		return (INT_MIN);
+	min = stack->nbr;
+	while (stack != NULL)
+	{
+		if (stack->nbr > min)
 			min = stack->nbr;
 		stack = stack->next;
 	}
@@ -59,4 +81,19 @@ int	ft_find_middle(int size)
 	else
 		mid = (size / 2) + 1;
 	return (mid);
+}
+
+int	ft_find_pos(t_list *stack, int pos_to_find)
+{
+	int	pos;
+
+	if (!stack || !stack->next)
+		return (0);
+	pos = 1;
+	while (stack != NULL && pos != pos_to_find)
+	{
+		stack = stack->next;
+		pos++;
+	}
+	return (stack->nbr);
 }

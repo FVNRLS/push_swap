@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 14:24:51 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 19:25:06 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ int	main(int argc, char **argv)
 
 	if (ft_stack_is_small(argc) == true)
 		ft_sort_small(&stack_a, &stack_b, argc);
+	else if (ft_stack_is_medium(argc) == true || ft_stack_is_big(argc) == true)
+		ft_sort_big(&stack_a, argc);
+
+
+
+		
 	ft_delete_stack(&stack_a);
 	ft_delete_stack(&stack_b);
 	// system("leaks a.out");

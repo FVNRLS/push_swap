@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 15:08:56 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 20:04:44 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ bool	ft_stack_is_big(int argc);
 
 /* FINDERS */
 int		ft_find_min(t_list *stack);
+int		ft_find_max(t_list *stack);
 int		ft_find_node(t_list *stack, int to_find);
+int		ft_find_pos(t_list *stack, int pos_to_find);
 int		ft_find_middle(int size);
 
 /* COUNTERS */
@@ -77,10 +79,18 @@ int		ft_list_size(t_list *stack);
 /* SORTERS */
 
 /* ALGORITHMS */
+/* SMALL SIZE STACK SORT */
 int		ft_sort_small(t_list **stack_a, t_list **stack_b, int argc);
-void	ft_apply_cases(t_list **stack, int argc, int *cnt);
+void	ft_sort_last_3(t_list **stack, int argc, int *cnt);
 void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt);
 void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b, int *cnt);
+/* MEDIUM/BIG SIZE STACK SORT */
+int		ft_sort_big(t_list **stack_a/* , t_list **stack_b*/, int argc);
+/* CREATE KEY STACK AND FIND KEY ELEMENT*/
+t_list	*ft_create_key_stack(t_list *stack_a);
+void	ft_sort_key_stack(t_list **key_stack);
+int		ft_find_key(t_list *key_stack, int argc);
+int		ft_get_key(t_list **stack_a, t_list **key_stack, int argc);
 
 
 
@@ -104,6 +114,7 @@ void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 # include "./sort/counters.c"
 # include "./sort/sorters.c"
 # include "./sort/algorithms/small_stack_alg.c"
-
+# include "./sort/algorithms/big_stack_alg.c"
+# include "./sort/algorithms/key_number_alg.c"
 
 #endif
