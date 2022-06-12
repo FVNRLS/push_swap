@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:43:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 13:17:48 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 11:06:20 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	The first element becomes the last one.
 */
 
-void	ra(t_list **stack)
+void	ra(t_list **stack, int *cnt)
 {
 	t_list	*tmp;
 	
@@ -29,6 +29,8 @@ void	ra(t_list **stack)
 	free(tmp);
 	tmp = NULL;
 	*stack = (*stack)->next;
+	write(1, "ra\n", 3);
+	*cnt += 1;
 }
 
 /*
@@ -37,7 +39,7 @@ void	ra(t_list **stack)
 	The first element becomes the last one.
 */
 
-void	rb(t_list **stack)
+void	rb(t_list **stack, int *cnt)
 {
 	t_list	*tmp;
 	
@@ -48,10 +50,14 @@ void	rb(t_list **stack)
 	free(tmp);
 	tmp = NULL;
 	*stack = (*stack)->next;
+	write(1, "rb\n", 3);
+	*cnt += 1;
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b, int *cnt)
 {	
-	ra(stack_a);
-	rb(stack_b);
+	ra(stack_a, cnt);
+	rb(stack_b, cnt);
+	write(1, "rr\n", 3);
+	*cnt += 1;
 }

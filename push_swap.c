@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 00:07:46 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 14:24:51 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 	in the end free all stacks!
 	//TODO: change error message to "Error"!
+	rewrite find_node() in binary search!!!
 */
 
 #include "push_swap.h"
@@ -41,7 +42,9 @@ int	main(int argc, char **argv)
 	// 	return (1);
 
 	if (ft_stack_is_small(argc) == true)
-		ft_sort_small(&stack_a, &stack_b);
-		
+		ft_sort_small(&stack_a, &stack_b, argc);
+	ft_delete_stack(&stack_a);
+	ft_delete_stack(&stack_b);
+	// system("leaks a.out");
 	return (0);
 }

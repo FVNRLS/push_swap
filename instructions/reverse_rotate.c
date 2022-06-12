@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:16:07 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 14:45:11 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 11:06:51 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 	Shift down all elements of stack a by 1.
 	The last element becomes the first one.
 */
-void	rra(t_list **stack)
+void	rra(t_list **stack, int *cnt)
 {
 	t_list	*last;
 	
@@ -27,6 +27,8 @@ void	rra(t_list **stack)
 	last = ft_new_node(last->nbr);
 	ft_add_front(stack, last);
 	ft_del_last(stack);
+	write(1, "rra\n", 4);
+	*cnt += 1;
 }
 
 /*
@@ -34,7 +36,7 @@ void	rra(t_list **stack)
 	Shift down all elements of stack b by 1. 
 	The last element becomes the first one.
 */
-void	rrb(t_list **stack)
+void	rrb(t_list **stack, int *cnt)
 {
 	t_list	*last;
 	
@@ -44,10 +46,14 @@ void	rrb(t_list **stack)
 	last = ft_new_node(last->nbr);
 	ft_add_front(stack, last);
 	ft_del_last(stack);
+	write(1, "rrb\n", 4);
+	*cnt += 1;
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_list **stack_a, t_list **stack_b, int *cnt)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra(stack_a, cnt);
+	rrb(stack_b, cnt);
+	write(1, "rrr\n", 4);
+	*cnt += 1;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 00:05:49 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 14:24:27 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ typedef struct	s_list
 
 /* LIST MANAGEMENT*/
 t_list 		*ft_new_node(int value);
-t_list		*ft_last_node(t_list *lst);
 void		ft_add_back(t_list **lst, t_list *new);
 void		ft_add_front(t_list **lst, t_list *new);
+void		ft_del_last(t_list **stack);
+void		ft_delete_stack(t_list **stack);
 
 
 /* ARGUMENTS MANAGEMENT (processing, checking)*/
@@ -45,16 +46,17 @@ char			**ft_split(char *s, char c);
 int				ft_atoi(const char *str, bool *error_flag);
 
 /* INSCTRUCTIONS */
-void	sa(t_list **stack, int argc);
-void	sb(t_list **stack, int argc);
-void	ss(t_list **stack_a, t_list **stack_b, int argc);
-void	pa(t_list **stack_a, t_list **stack_b);
-void	ra(t_list **stack);
-void	rb(t_list **stack);
-void	rr(t_list **stack_a, t_list **stack_b);
-void	rra(t_list **stack);
-void	rrb(t_list **stack);
-void	rrr(t_list **stack_a, t_list **stack_b);
+void	sa(t_list **stack, int argc, int *cnt);
+void	sb(t_list **stack, int argc, int *cnt);
+void	ss(t_list **stack_a, t_list **stack_b, int argc, int *cnt);
+void	pa(t_list **stack_a, t_list **stack_b, int *cnt);
+void	pb(t_list **stack_a, t_list **stack_b, int *cnt);
+void	ra(t_list **stack, int *cnt);
+void	rb(t_list **stack, int *cnt);
+void	rr(t_list **stack_a, t_list **stack_b, int *cnt);
+void	rra(t_list **stack, int *cnt);
+void	rrb(t_list **stack, int *cnt);
+void	rrr(t_list **stack_a, t_list **stack_b, int *cnt);
 
 /* SORTING */
 /* LIST CHECKERS */
@@ -73,8 +75,9 @@ int		ft_list_size(t_list *stack);
 /* SORTERS */
 
 /* ALGORITHMS */
-int		ft_sort_small(t_list **stack_a, t_list **stack_b);
-
+int		ft_sort_small(t_list **stack_a, t_list **stack_b, int argc);
+void	ft_apply_cases(t_list **stack, int argc, int *cnt);
+void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b, int *cnt);
 
 
 
@@ -97,7 +100,7 @@ void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 # include "./sort/finders.c"
 # include "./sort/counters.c"
 # include "./sort/sorters.c"
-# include "./sort/algorithms.c"
+# include "./sort/algorithms/small_stack_alg.c"
 
 
 #endif

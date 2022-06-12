@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testing_func.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 00:07:01 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/12 12:38:39 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,20 +101,27 @@ void	printlist(t_list **stack_a, t_list **stack_b) //TODO: rewrite without print
 	
 	if (!*stack_a && !*stack_b)
 		return ;
-	printf("\nSTACK A:	STACK B:\n");
+	printf("\nA	B\n");
+	write(1, "---------\n", 10);
 	while (tmp_a != NULL)
 	{
 		printf("%d", tmp_a->nbr);
 		tmp_a = tmp_a->next;
 		if (tmp_b != NULL)
 		{
-			printf("		%d", tmp_b->nbr);
+			printf("	%d", tmp_b->nbr);
 			tmp_b = tmp_b->next;
 		}
 		printf("\n");
 	}
+	while (tmp_b != NULL)
+	{
+		printf("	%d\n", tmp_b->nbr);
+		tmp_b = tmp_b->next;
+	}
 	printf("\n");
 }
+
 
 void	ft_check_sort(t_list *stack_a, t_list *stack_b)
 {
