@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:23:57 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 20:04:32 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:50:07 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,23 +72,20 @@ void	ft_sort_key_stack(t_list **key_stack)
 		-> KEY is the max. element of the first chunk
 	Return the key.
 */
-int	ft_find_key(t_list *key_stack, int argc)
+int	ft_find_next_key(t_list *key_stack, int parts, int move)
 {
-	int	parts;
-	int	size;
 	int	pos;
+	int	size;
 	int	key;
-
-	parts = 0;
-	if (ft_stack_is_medium(argc) == true)
-		parts = 4;
-	else if (ft_stack_is_big(argc) == true)
-		parts = 8;
 	
 	size = ft_list_size(key_stack);
 	pos = size / parts;
-	printf("\npos:	%d", pos);
+	pos *= move;
 	key = ft_find_pos(key_stack, pos);
+	//TODO: del!
+	printf("\npart:	%d", move);
+	printf("\npos:	%d", pos);
+	printf("\nkey:	%d\n", key);
 	return (key);
 }
 
@@ -99,15 +96,16 @@ int	ft_find_key(t_list *key_stack, int argc)
 	3) find the key number
 	4) delete
 */
-int	ft_get_key(t_list **stack_a, t_list **key_stack, int argc)
+int	ft_get_key(t_list **stack_a, t_list **key_stack, int parts, int move)
 {
 	int		key;
-
+	
 	*key_stack = ft_create_key_stack(*stack_a);
 	ft_sort_key_stack(key_stack);
+	key = ft_find_next_key(*key_stack, parts, move);
+	
 	//TODO: del!
 	printlist(stack_a, key_stack);
-	key = ft_find_key(*key_stack, argc);
 	
 	return (key);
 }
