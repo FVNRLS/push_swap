@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_stack_alg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/14 15:01:04 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/14 20:12:17 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 	pos = 0;
 	while (pos != 1)
 	{
-		if (pos <= mid && pos != 1)
+		if (pos <= mid)
 			ra(stack_a, cnt);
 		if (pos > mid)
 			rra(stack_a, cnt);
@@ -116,7 +116,7 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 	printlist(stack_a, stack_b); //
 }
 
-int	ft_push_element_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
+/* int	ft_push_element_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int nbr, bool *ra_used)
 {
 	int	mid;
 	int	pos;
@@ -129,40 +129,49 @@ int	ft_push_element_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 	while (pos != 1)
 	{
 		if (pos <= mid && pos != 1)
+		{
 			ra(stack_b, cnt);
+			*ra_used = true;
+		}
 		if (pos > mid)
-			rra(stack_a, cnt);
-		if (ft_stack_a_sorted(*stack_a) == true)
-			return ;
-		pos = ft_find_node(*stack_a, nbr);
+			rra(stack_b, cnt);
+		if (ft_stack_b_sorted(*stack_b) == true)
+			break ;
+		pos = ft_find_node(*stack_b, nbr);
 		turns++;
 	}
 	pa(stack_a, stack_b, cnt);
 	turns++;
 	printlist(stack_a, stack_b); //
 	return (turns);
-}
+} */
 
-//TODO: finish!
+/* //TODO: finish!
 void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt)
 {
-	t_list	*tmp_a;
 	t_list	*tmp_b;
-	int		i;
 	int		max;
-	int		pos;
 	int		turns;
+	bool	ra_used;
 	
-	tmp_a = *stack_a;
+	ra_used = false;
 	tmp_b = *stack_b;
 	max = 0;
-	i = 0;
 	while (tmp_b != NULL)
 	{
-		max = ft_find_max(stack_b);
-		turns = ft_push_element_to_a(stack_a, stack_b, cnt, max);
-		//TODO: turn so many times like turns!
+		max = ft_find_max(*stack_b);
+		turns = ft_push_element_to_a(stack_a, stack_b, cnt, max, &ra_used);
+		if (ra_used == true)
+		{
+			while (turns != 0)
+				rra(stack_b, cnt);
+		}
+		else
+		{
+			while (turns != 0)
+				ra(stack_b, cnt);
+		}
+		tmp_b = tmp_b->next;
 	}
-	
-	
 }
+ */

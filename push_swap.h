@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/14 15:00:37 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/14 20:06:40 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		ft_sort_big(t_list **stack_a, t_list **stack_b, int argc);
 void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key);
 bool	ft_part_is_pushed(t_list *stack_a, int key);
 void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr);
-int		ft_push_element_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int nbr);
+int		ft_push_element_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int nbr, bool *ra_used);
 void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt);
 
 /* CREATE KEY STACK AND FIND KEY ELEMENT*/
