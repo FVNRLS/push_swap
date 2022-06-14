@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/13 20:02:18 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/14 15:01:04 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,43 @@ int	ft_sort_big(t_list **stack_a, t_list **stack_b, int argc)
 	int		cnt;
 	int		move;
 	int		parts;
+	int		nbrs_left;
 
 	parts = ft_set_parting(argc);
 	move = 1;
 	cnt = 0;
+	key = 0;
 	if (ft_stack_a_sorted(*stack_a) == true)
 		return (cnt);
 	
-	key = ft_get_key(stack_a, &key_stack, parts, move);
-
-	ft_push_part_to_b(stack_a, stack_b, &cnt, key);
-	move++;
-	printlist(stack_a, stack_b);
+	while (move < parts)
+	{
+		if (key == 0)
+		{
+			key = ft_get_key(stack_a, &key_stack, parts, move);
+			ft_push_part_to_b(stack_a, stack_b, &cnt, key);
+		}
+		else
+		{
+			key = ft_find_next_key(key_stack, parts, move);
+			ft_push_part_to_b(stack_a, stack_b, &cnt, key);
+		}
+		printlist(stack_a, stack_b);
+		move++;
+	}
+	nbrs_left = ft_list_size(*stack_a) - 3;
+	printf("nbrs left: %d", nbrs_left);
+	ft_sort_to_b(stack_a, stack_b, &cnt);
+	ft_sort_last_3(stack_a, argc, &cnt);
+	printlist(stack_a, stack_b); //
+	while (nbrs_left > 0)
+	{
+		pa(stack_a, stack_b, &cnt);
+		nbrs_left--;
+	}
+	printlist(stack_a, stack_b); //
 	
-	key = ft_find_next_key(key_stack, parts, move);
-	ft_push_part_to_b(stack_a, stack_b, &cnt, key);
-	move++;
-	printlist(stack_a, stack_b);
 
-	// while (move != parts + 1)
-	// {	
-	// 	ft_push_part_to_b(stack_a, stack_b, &cnt, key);
-	// 	key = ft_find_next_key(key_stack, parts, move);
-	// 	move++;
-	// }
-	
-
-	// if (ft_stack_a_sorted(*stack_a) == false)
-	// 	ft_apply_cases(stack_a, argc, &cnt);
-	// ft_push_back_to_a(stack_a, stack_b, &cnt);
-	
-	// //TODO: delete!
-	// printlist(stack_a, stack_b);
-	// printf("\nTotal Counter:	%d\n", cnt);
-	//TODO: delete!
 	printf("\nTotal Instructions:	%d\n", cnt);
 	ft_delete_stack(&key_stack);
 	return (cnt);
@@ -71,9 +74,11 @@ void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key)
 		if (nbr <= key)
 		{
 			ft_push_element_to_b(stack_a, stack_b, cnt, nbr);
-			tmp = *stack_a;
+			tmp = *stack_a; //TODO: check if it's more effective (by now-> more instructions, but no crashes / loops)
 		}
 		tmp = tmp->next;
+		if (tmp == NULL)
+			tmp = *stack_a;
 	}
 }
 
@@ -99,7 +104,7 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 	pos = 0;
 	while (pos != 1)
 	{
-		if (pos <= mid)
+		if (pos <= mid && pos != 1)
 			ra(stack_a, cnt);
 		if (pos > mid)
 			rra(stack_a, cnt);
@@ -108,7 +113,56 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 		pos = ft_find_node(*stack_a, nbr);
 	}
 	pb(stack_a, stack_b, cnt);
+	printlist(stack_a, stack_b); //
+}
+
+int	ft_push_element_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
+{
+	int	mid;
+	int	pos;
+	int	size;
+	int	turns;
 	
-	//TODO: delete!
-	printlist(stack_a, stack_b);
+	size = ft_list_size(*stack_b);
+	mid = ft_find_middle(size);
+	pos = 0;
+	while (pos != 1)
+	{
+		if (pos <= mid && pos != 1)
+			ra(stack_b, cnt);
+		if (pos > mid)
+			rra(stack_a, cnt);
+		if (ft_stack_a_sorted(*stack_a) == true)
+			return ;
+		pos = ft_find_node(*stack_a, nbr);
+		turns++;
+	}
+	pa(stack_a, stack_b, cnt);
+	turns++;
+	printlist(stack_a, stack_b); //
+	return (turns);
+}
+
+//TODO: finish!
+void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt)
+{
+	t_list	*tmp_a;
+	t_list	*tmp_b;
+	int		i;
+	int		max;
+	int		pos;
+	int		turns;
+	
+	tmp_a = *stack_a;
+	tmp_b = *stack_b;
+	max = 0;
+	i = 0;
+	while (tmp_b != NULL)
+	{
+		max = ft_find_max(stack_b);
+		turns = ft_push_element_to_a(stack_a, stack_b, cnt, max);
+		//TODO: turn so many times like turns!
+	}
+	
+	
 }
