@@ -6,13 +6,13 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 17:19:09 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 20:03:54 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	ft_sort_big(t_list **stack_a, t_list **stack_b, int argc)
+int	ft_sort_big(t_list **stack_a, t_list **stack_b)
 {	
 	t_list	*key_stack;
 	int		cnt;
@@ -21,11 +21,11 @@ int	ft_sort_big(t_list **stack_a, t_list **stack_b, int argc)
 	cnt = 0;
 	if (ft_stack_sorted(*stack_a) == true)
 		return (cnt);
-	ft_push_chunks_to_b(stack_a, stack_b, &key_stack, &cnt, argc);
+	ft_push_chunks_to_b(stack_a, stack_b, &key_stack, &cnt);
 	
 	nbrs_left = ft_list_size(*stack_a) - 3;
 	ft_sort_to_b(stack_a, stack_b, &cnt);
-	ft_sort_last_3(stack_a, argc, &cnt);
+	ft_sort_last_3(stack_a, &cnt);
 	while (nbrs_left > 0)
 	{
 		pa(stack_a, stack_b, &cnt);
@@ -38,13 +38,15 @@ int	ft_sort_big(t_list **stack_a, t_list **stack_b, int argc)
 	return (cnt);
 }
 
-void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack, int *cnt, int argc)
+void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack, int *cnt)
 {
 	int		move;
 	int		parts;
 	int		key;
+	int		size;
 	
-	parts = ft_set_parting(argc);
+	size = ft_list_size(*stack_a);
+	parts = ft_set_parting(size);
 	move = 1;
 	key = ft_get_key(stack_a, key_stack, parts, move);
 	ft_push_part_to_b(stack_a, stack_b, cnt, key);
@@ -74,7 +76,6 @@ void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key)
 			ft_push_element_to_b(stack_a, stack_b, cnt, nbr);
 			tmp = *stack_a; //TODO: check if it's more effective (by now-> more instructions, but no crashes / loops)
 		}
-		tmp = tmp->next;
 		if (tmp == NULL)
 			tmp = *stack_a;
 	}

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 17:38:16 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 20:00:03 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 {
 	t_list 	*stack_a;
 	t_list	*stack_b;
+	int		size;
 	
 	stack_a = NULL;
 	stack_b = NULL;
@@ -32,11 +33,12 @@ int	main(int argc, char **argv)
 	// PRINT INIT STATUS
 	printf("\nINIT STATUS:");
 	printlist(&stack_a, &stack_b);
-
-	if (ft_stack_is_small(argc) == true)
-		ft_sort_small(&stack_a, &stack_b, argc);
-	else if (ft_stack_is_medium(argc) == true || ft_stack_is_big(argc) == true)
-		ft_sort_big(&stack_a, &stack_b, argc);
+	
+	size = ft_list_size(stack_a);
+	if (ft_stack_is_small(size) == true)
+		ft_sort_small(&stack_a, &stack_b);
+	else if (ft_stack_is_medium(size) == true || ft_stack_is_big(size) == true)
+		ft_sort_big(&stack_a, &stack_b);
 
 	printlist(&stack_a, &stack_b);
 	ft_delete_stack(&stack_a);

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 11:05:52 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:31:54 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 	Swap the first 2 elements at the top of stack a.
 	Do nothing if there is only one or no elements.	
 */
-void	sa(t_list **stack, int argc, int *cnt)
+void	sa(t_list **stack, int *cnt)
 {
 	int	tmp;
 	
-	if (!*stack || argc < 3)
+	if (!*stack || !stack)
 		return ;
 	tmp = (*stack)->nbr;
 	(*stack)->nbr = (*stack)->next->nbr;
@@ -35,11 +35,11 @@ void	sa(t_list **stack, int argc, int *cnt)
 	Swap the first 2 elements at the top of stack b.
 	Do nothing if there is only one or no elements.	
 */
-void	sb(t_list **stack, int argc, int *cnt)
+void	sb(t_list **stack, int *cnt)
 {
 	int	tmp;
 	
-	if (!*stack || argc < 3)
+	if (!*stack || !stack)
 		return ;
 	tmp = (*stack)->nbr;
 	(*stack)->nbr = (*stack)->next->nbr;
@@ -51,10 +51,12 @@ void	sb(t_list **stack, int argc, int *cnt)
 /*
 	sa and sb at the same time.
 */
-void	ss(t_list **stack_a, t_list **stack_b, int argc, int *cnt)
+void	ss(t_list **stack_a, t_list **stack_b, int *cnt)
 {
-	sa(stack_a, argc, cnt);
-	sb(stack_b, argc, cnt);
+	if (!*stack_a || !stack_a || !*stack_b || !stack_b)
+		return ;
+	sa(stack_a, cnt);
+	sb(stack_b, cnt);
 	write(1, "ss\n", 3);
 	*cnt += 1;
 }
@@ -67,7 +69,7 @@ void	pa(t_list **stack_a, t_list **stack_b, int *cnt)
 {
 	t_list	*tmp;
 	
-	if (!*stack_b)
+	if (!*stack_b || !stack_b)
 		return ;
 	tmp = ft_new_node((*stack_b)->nbr);
 	ft_add_front(stack_a, tmp);
@@ -87,7 +89,7 @@ void	pb(t_list **stack_a, t_list **stack_b, int *cnt)
 {
 	t_list	*tmp;
 	
-	if (!*stack_a)
+	if (!*stack_a || !stack_a)
 		return ;
 	tmp = ft_new_node((*stack_a)->nbr);
 	ft_add_front(stack_b, tmp);

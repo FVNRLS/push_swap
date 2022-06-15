@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:23:57 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 17:13:54 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:40:57 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_list	*ft_create_key_stack(t_list *stack_a)
 }
 
 /*
-	Bubble sort of the key stack (Sort in ascending order).
+	Bubble sort of the key stack.
 */
 void	ft_sort_key_stack(t_list **key_stack)
 {

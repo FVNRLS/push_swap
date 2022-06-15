@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:28:35 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 16:56:35 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:02:16 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ bool	ft_stack_sorted(t_list *stack)
 /*
 	Stack contains 10 elements
 */
-bool	ft_stack_is_small(int argc)
+bool	ft_stack_is_small(int size)
 {
-	if (argc <= 11)
+	if (size <= 10)
 		return (true);
 	return (false);
 }
@@ -38,9 +38,9 @@ bool	ft_stack_is_small(int argc)
 /*
 	Stack contains between 10 and 100 elements
 */
-bool	ft_stack_is_medium(int argc)
+bool	ft_stack_is_medium(int size)
 {
-	if (argc >= 11 && argc <= 101)
+	if (size >= 10 && size <= 100)
 		return (true);
 	return (false);
 }
@@ -48,9 +48,9 @@ bool	ft_stack_is_medium(int argc)
 /*
 	Stack contains more than 100 elements
 */
-bool	ft_stack_is_big(int argc)
+bool	ft_stack_is_big(int size)
 {
-	if (argc > 101)
+	if (size > 100)
 		return (true);
 	return (false);
 }

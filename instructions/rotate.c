@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:43:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 11:06:20 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 18:30:53 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	ra(t_list **stack, int *cnt)
 {
 	t_list	*tmp;
 	
+	if (!*stack || !stack)
+		return ;
 	tmp = ft_new_node((*stack)->nbr);
-	
 	ft_add_back(stack, tmp);
 	tmp = *stack;
 	free(tmp);
@@ -43,8 +44,9 @@ void	rb(t_list **stack, int *cnt)
 {
 	t_list	*tmp;
 	
+	if (!*stack || !stack)
+		return ;
 	tmp = ft_new_node((*stack)->nbr);
-	
 	ft_add_back(stack, tmp);
 	tmp = *stack;
 	free(tmp);
@@ -56,6 +58,8 @@ void	rb(t_list **stack, int *cnt)
 
 void	rr(t_list **stack_a, t_list **stack_b, int *cnt)
 {	
+	if (!*stack_a || !stack_a || !*stack_b || !stack_b)
+		return ;
 	ra(stack_a, cnt);
 	rb(stack_b, cnt);
 	write(1, "rr\n", 3);

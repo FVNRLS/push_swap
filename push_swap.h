@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 16:56:39 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 18:42:12 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ char			**ft_split(char *s, char c);
 int				ft_atoi(const char *str, bool *error_flag);
 
 /* INSCTRUCTIONS */
-void	sa(t_list **stack, int argc, int *cnt);
-void	sb(t_list **stack, int argc, int *cnt);
-void	ss(t_list **stack_a, t_list **stack_b, int argc, int *cnt);
+void	sa(t_list **stack, int *cnt);
+void	sb(t_list **stack, int *cnt);
+void	ss(t_list **stack_a, t_list **stack_b, int *cnt);
 void	pa(t_list **stack_a, t_list **stack_b, int *cnt);
 void	pb(t_list **stack_a, t_list **stack_b, int *cnt);
 void	ra(t_list **stack, int *cnt);
@@ -61,9 +61,9 @@ void	rrr(t_list **stack_a, t_list **stack_b, int *cnt);
 /* SORTING */
 /* LIST CHECKERS */
 bool	ft_stack_sorted(t_list *stack);
-bool	ft_stack_is_small(int argc);
-bool	ft_stack_is_medium(int argc);
-bool	ft_stack_is_big(int argc);
+bool	ft_stack_is_small(int size);
+bool	ft_stack_is_medium(int size);
+bool	ft_stack_is_big(int size);
 
 /* FINDERS */
 int		ft_find_min(t_list *stack);
@@ -74,19 +74,19 @@ int		ft_find_middle(int size);
 
 /* COUNTERS */
 int		ft_list_size(t_list *stack);
-int		ft_set_parting(int argc);
+int		ft_set_parting(int size);
 
 /* SORTERS */
 
 /* ALGORITHMS */
 /* SMALL SIZE STACK SORT */
-int		ft_sort_small(t_list **stack_a, t_list **stack_b, int argc);
-void	ft_sort_last_3(t_list **stack, int argc, int *cnt);
+int		ft_sort_small(t_list **stack_a, t_list **stack_b);
+void	ft_sort_last_3(t_list **stack, int *cnt);
 void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt);
 void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b, int *cnt);
 /* MEDIUM/BIG SIZE STACK SORT */
-int		ft_sort_big(t_list **stack_a, t_list **stack_b, int argc);
-void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack, int *cnt, int argc);
+int		ft_sort_big(t_list **stack_a, t_list **stack_b);
+void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack, int *cnt);
 void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key);
 void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr);
 bool	ft_part_is_pushed(t_list *stack_a, int key);
