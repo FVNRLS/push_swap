@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:23:57 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/13 19:50:07 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:13:54 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,6 @@ int	ft_find_next_key(t_list *key_stack, int parts, int move)
 	pos = size / parts;
 	pos *= move;
 	key = ft_find_pos(key_stack, pos);
-	//TODO: del!
-	printf("\npart:	%d", move);
-	printf("\npos:	%d", pos);
-	printf("\nkey:	%d\n", key);
 	return (key);
 }
 
@@ -103,9 +99,5 @@ int	ft_get_key(t_list **stack_a, t_list **key_stack, int parts, int move)
 	*key_stack = ft_create_key_stack(*stack_a);
 	ft_sort_key_stack(key_stack);
 	key = ft_find_next_key(*key_stack, parts, move);
-	
-	//TODO: del!
-	printlist(stack_a, key_stack);
-	
 	return (key);
 }

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:51:17 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 19:28:58 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:20:11 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,12 @@ int	ft_sort_small(t_list **stack_a, t_list **stack_b, int argc)
 	int	cnt;
 	
 	cnt = 0;
-	if (ft_stack_a_sorted(*stack_a) == true)
+	if (ft_stack_sorted(*stack_a) == true)
 		return (cnt);
 	ft_sort_to_b(stack_a, stack_b, &cnt);
-	if (ft_stack_a_sorted(*stack_a) == false)
+	if (ft_stack_sorted(*stack_a) == false || ft_list_size(*stack_a) < 3)
 		ft_sort_last_3(stack_a, argc, &cnt);
 	ft_push_back_to_a(stack_a, stack_b, &cnt);
-	
-	//TODO: delete!
-	printlist(stack_a, stack_b);
-	printf("\nTotal Counter:	%d\n", cnt);
 	return (cnt);
 }
 
@@ -58,14 +54,12 @@ void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt)
 				ra(stack_a, cnt);
 			else if (pos > mid)
 				rra(stack_a, cnt);
-			if (ft_stack_a_sorted(*stack_a) == true)
+			if (ft_stack_sorted(*stack_a) == true)
 				return ;
 			pos = ft_find_node(*stack_a, min);
 		}
 		pb(stack_a, stack_b, cnt);
 		size--;
-		//TODO: delete!
-		printlist(stack_a, stack_b);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 13:31:38 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:56:39 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	rrr(t_list **stack_a, t_list **stack_b, int *cnt);
 
 /* SORTING */
 /* LIST CHECKERS */
-bool	ft_stack_a_sorted(t_list *stack_a);
-bool	ft_stack_b_sorted(t_list *stack_b);
+bool	ft_stack_sorted(t_list *stack);
 bool	ft_stack_is_small(int argc);
 bool	ft_stack_is_medium(int argc);
 bool	ft_stack_is_big(int argc);

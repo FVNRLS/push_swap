@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 12:38:39 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:58:57 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ void	printlist(t_list **stack_a, t_list **stack_b) //TODO: rewrite without print
 
 void	ft_check_sort(t_list *stack_a, t_list *stack_b)
 {
-	if (ft_stack_a_sorted(stack_a) == true)
+	if (ft_stack_sorted(stack_a) == true)
 		printf("Stack A is sorted\n");
-	if (ft_stack_b_sorted(stack_b) == true)
+	if (ft_stack_sorted(stack_b) == true)
 		printf("Stack B is sorted\n");
 }

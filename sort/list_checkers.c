@@ -6,34 +6,21 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:28:35 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/12 13:01:44 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:56:35 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	ft_stack_a_sorted(t_list *stack_a)
+bool	ft_stack_sorted(t_list *stack)
 {
-	if (!stack_a->next || !stack_a)
+	if (!stack->next || !stack)
 		return (false);
-	while (stack_a->next != NULL)
+	while (stack->next != NULL)
 	{
-		if (stack_a->nbr > stack_a->next->nbr)
+		if (stack->nbr > stack->next->nbr)
 			return (false);
-		stack_a = stack_a->next;
-	}
-	return (true);
-}
-
-bool	ft_stack_b_sorted(t_list *stack_b)
-{
-	if (!stack_b->next || !stack_b)
-		return (false);
-	while (stack_b->next != NULL)
-	{
-		if (stack_b->nbr < stack_b->next->nbr)
-			return (false);
-		stack_b = stack_b->next;
+		stack = stack->next;
 	}
 	return (true);
 }

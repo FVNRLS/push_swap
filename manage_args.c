@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/11 13:15:42 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:52:33 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_process_split_args(char **argv, t_list **stack, bool *error_flag)
 	int		i;
 
 	tmp = NULL;
-	*stack = NULL;
 	split = ft_split(argv[1], DELIMETER);
 	i = 0;
 	while (split[i] != NULL)
@@ -68,10 +67,7 @@ bool	ft_create_stack(int argc, char **argv, t_list **stack)
 	else if (argc == 2)
 		ft_process_split_args(argv, stack, &error_flag);
 	else
-	{
-		write(1, "Input some arguments!\n", 22);
 		return (false);
-	}
 	if (ft_input_invalid(error_flag) == true)
 		return (false);
 	return (true);
@@ -82,7 +78,7 @@ bool	ft_input_invalid(bool error_flag)
 {
 	if (error_flag == true)
 	{
-		write (1, "\nError! Invalid arguments found!\n", 35);
+		write(1, "Error\n", 6);
 		return (true);
 	}
 	return (false);
@@ -102,7 +98,7 @@ bool	ft_duplicates_found(t_list *stack)
 			next_node = next_node->next;
 			if (pos->nbr == next_node->nbr)
 			{
-				write(1, "\nError! Duplicated arguments found!\n\n", 38);
+				write(1, "Error\n", 6);
 				return (true);
 			}
 		}
