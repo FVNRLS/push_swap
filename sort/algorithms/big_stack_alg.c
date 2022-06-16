@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 20:03:54 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/16 10:27:03 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack,
 	move = 1;
 	key = ft_get_key(stack_a, key_stack, parts, move);
 	ft_push_part_to_b(stack_a, stack_b, cnt, key);
+	move++;
 	if (ft_stack_sorted(*stack_a) == true)
 		return ;
-	
 	while (move < parts)
 	{
 		key = ft_find_next_key(*key_stack, parts, move);
@@ -68,14 +68,12 @@ void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key)
 
 	tmp = *stack_a;
 	nbr = 0;
-	while (ft_part_is_pushed(*stack_a, key) != true)
+	while (ft_part_is_pushed(*stack_a, key) == false)
 	{
 		nbr = tmp->nbr;
 		if (nbr <= key)
-		{
 			ft_push_element_to_b(stack_a, stack_b, cnt, nbr);
-			tmp = *stack_a; //TODO: check if it's more effective (by now-> more instructions, but no crashes / loops)
-		}
+		tmp = tmp->next;
 		if (tmp == NULL)
 			tmp = *stack_a;
 	}
@@ -92,7 +90,7 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 	pos = 0;
 	while (pos != 1)
 	{
-		if (pos <= mid && pos != 1)
+		if (pos <= mid)
 			ra(stack_a, cnt);
 		if (pos > mid)
 			rra(stack_a, cnt);
@@ -105,7 +103,7 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 
 bool	ft_part_is_pushed(t_list *stack_a, int key)
 {
-	while (stack_a != NULL)
+	while (stack_a->next != NULL)
 	{
 		if (stack_a->nbr <= key)
 			return (false);
