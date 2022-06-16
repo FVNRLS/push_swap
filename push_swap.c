@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 20:00:03 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/16 11:26:13 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main(int argc, char **argv)
 		return (1);
 
 	// PRINT INIT STATUS
-	printf("\nINIT STATUS:");
-	printlist(&stack_a, &stack_b);
+	// printf("\nINIT STATUS:");
+	// printlist(&stack_a, &stack_b);
 	
 	size = ft_list_size(stack_a);
 	if (ft_stack_is_small(size) == true)
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	else if (ft_stack_is_medium(size) == true || ft_stack_is_big(size) == true)
 		ft_sort_big(&stack_a, &stack_b);
 
-	printlist(&stack_a, &stack_b);
+	// printlist(&stack_a, &stack_b);
 	ft_delete_stack(&stack_a);
 	ft_delete_stack(&stack_b);
 	// system("leaks push_swap");

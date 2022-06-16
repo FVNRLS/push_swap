@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:32:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 16:57:12 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/16 12:09:29 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt)
 	{
 		max = ft_find_max(*stack_b);
 		turns = ft_push_max_to_a(stack_a, stack_b, cnt, max, &ra_used);
-		// ft_restore_stack(stack_b, cnt, turns, ra_used);
+		ft_restore_stack(stack_b, cnt, turns, ra_used);
 		ra_used = false;
 		size--;
 	}
@@ -48,11 +48,11 @@ int	ft_push_max_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int max, bool
 	{
 		if (pos <= mid)
 		{
-			ra(stack_b, cnt);
+			rb(stack_b, cnt);
 			*ra_used = true;
 		}
 		if (pos > mid)
-			rra(stack_b, cnt);
+			rrb(stack_b, cnt);
 		if (ft_stack_sorted(*stack_b) == true)
 			break ;
 		pos = ft_find_node(*stack_b, max);
@@ -70,10 +70,10 @@ void	ft_restore_stack(t_list **stack_b, int *cnt, int turns, bool ra_used)
 	while (turns != 0)
 	{
 		if (ra_used == true)
-			rra(stack_b, cnt);
+			rrb(stack_b, cnt);
 
 		else
-			ra(stack_b, cnt);
+			rb(stack_b, cnt);
 		turns--;
 	}
 }
