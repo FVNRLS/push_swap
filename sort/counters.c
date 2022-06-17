@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:18:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 19:40:40 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:16:46 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	ft_list_size(t_list *stack)
 
 	if (!stack)
 		return (0);
-	if (!stack->next)
-		return(1);
 	size = 0;
 	while (stack != NULL)
 	{

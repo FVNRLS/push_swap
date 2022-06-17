@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/16 11:48:56 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/17 16:13:42 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,14 @@ int	ft_sort_big(t_list **stack_a, t_list **stack_b)
 {	
 	t_list	*key_stack;
 	int		cnt;
-	int		nbrs_left;
 
 	cnt = 0;
 	if (ft_stack_sorted(*stack_a) == true)
 		return (cnt);
 	ft_push_chunks_to_b(stack_a, stack_b, &key_stack, &cnt);
-	
-	nbrs_left = ft_list_size(*stack_a) - 3;
 	ft_sort_to_b(stack_a, stack_b, &cnt);
 	ft_sort_last_3(stack_a, &cnt);
-	while (nbrs_left > 0)
-	{
-		pa(stack_a, stack_b, &cnt);
-		nbrs_left--;
-	}
-	ft_sort_parts_to_a(stack_a, stack_b, &cnt); //here is a problem!
+	ft_sort_parts_to_a(stack_a, stack_b, &cnt);
 
 	// printf("\nTotal Instructions:	%d\n", cnt);
 	ft_delete_stack(&key_stack);

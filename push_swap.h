@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/16 12:09:32 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:46:28 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,8 @@ bool	ft_part_is_pushed(t_list *stack_a, int key);
 
 
 
-int		ft_push_max_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int max, bool *ra_used);
+void	ft_push_max_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int max);
 void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt);
-void	ft_restore_stack(t_list **stack_b, int *cnt, int turns, bool ra_used);
 
 /* CREATE KEY STACK AND FIND KEY ELEMENT*/
 t_list	*ft_create_key_stack(t_list *stack_a);
