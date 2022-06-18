@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 15:57:07 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 17:15:15 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,12 @@ bool	ft_stack_is_small(int size);
 bool	ft_stack_is_medium(int size);
 bool	ft_stack_is_big(int size);
 
-/* FINDERS */
+/* MIN/MAX FINDERS */
 int		ft_find_min(t_list *stack);
+int		ft_find_next_min(t_list *stack, int min);
 int		ft_find_max(t_list *stack);
 int		ft_find_next_max(t_list *stack, int max);
+/* POS FINDERS */
 int		ft_find_node(t_list *stack, int to_find);
 int		ft_find_pos(t_list *stack, int pos_to_find);
 int		ft_find_middle(int size);
@@ -125,7 +127,8 @@ void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 # include "./instructions/reverse_rotate.c"
 # include "testing_func.c"
 # include "./sort/list_checkers.c"
-# include "./sort/finders.c"
+# include "./sort/minmax_finders.c"
+# include "./sort/pos_finders.c"
 # include "./sort/counters.c"
 # include "./sort/algorithms/small_stack_alg.c"
 # include "./sort/algorithms/big_stack_alg.c"

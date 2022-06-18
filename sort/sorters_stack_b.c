@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:32:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 16:51:53 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 17:18:30 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@ void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt)
 	while (*stack_b != NULL)
 	{
 		max = ft_find_max(*stack_b);
-		// printf("\nmax:		%d", max);
 		if ((*stack_b)->next != NULL)
-		{
 			nmax = ft_find_next_max(*stack_b, max);
-			// printf("\nnext max:	%d\n", next_max);	
-		}
 		ft_push_maxes(stack_a, stack_b, cnt, max, nmax);
 	}
 }
@@ -44,7 +40,6 @@ void	ft_push_maxes(t_list **stack_a, t_list **stack_b, int *cnt, int max, int nm
 	size = ft_list_size(*stack_b);
 	mid = ft_find_middle(size);
 	pos_max = ft_find_node(*stack_b, max);
-	pos_nmax = 0;
 	pos_nmax = ft_find_node(*stack_b, nmax);
 	if ((pos_max <= mid) && (pos_nmax < mid) && (pos_nmax < pos_max) && pos_nmax != 0)
 	{
