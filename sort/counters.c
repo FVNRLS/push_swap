@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:18:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 13:30:30 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 17:03:31 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	ft_set_parting(int size)
 	if (size <= 20)
 		parts = 2;
 	else if (ft_stack_is_big(size) == true)
-		parts = 12;
+		parts = 14;
 	return (parts);
 }
