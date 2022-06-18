@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/17 19:47:17 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:57:07 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,13 @@ void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr)
 bool	ft_part_is_pushed(t_list *stack_a, int key);
 
 
-
-void	ft_push_max_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int max, int next_max);
 void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt);
-bool	ft_push_next_max(t_list **stack_a, t_list **stack_b, int *cnt, int next_max);
+void	ft_push_maxes(t_list **stack_a, t_list **stack_b, int *cnt, int max, int nmax);
+void	ft_push_nmax_over_top(t_list **stack_a, t_list **stack_b, int *cnt, int nmax);
+void	ft_push_nmax_over_bottom(t_list **stack_a, t_list **stack_b, int *cnt, int nmax);
+void	ft_push_max(t_list **stack_a, t_list **stack_b, int *cnt, int max, int mid);
+
+
 
 /* CREATE KEY STACK AND FIND KEY ELEMENT*/
 t_list	*ft_create_key_stack(t_list *stack_a);

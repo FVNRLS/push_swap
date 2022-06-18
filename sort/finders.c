@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 11:51:29 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:00:00 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	ft_find_next_max(t_list *stack, int max) //here problem! segfault!
 {
 	int	next_max;
 	
+	if (!stack->next)
+		return (0);
 	if (stack->nbr != max)
 		next_max = stack->nbr;
 	else

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/17 18:21:27 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 14:35:36 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	ft_sort_big(t_list **stack_a, t_list **stack_b)
 	ft_sort_to_b(stack_a, stack_b, &cnt);
 	ft_sort_last_3(stack_a, &cnt);
 	ft_sort_parts_to_a(stack_a, stack_b, &cnt);
-
-	// printf("\nTotal Instructions:	%d\n", cnt);
 	ft_delete_stack(&key_stack);
 	return (cnt);
 }
