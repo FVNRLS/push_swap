@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/17 11:46:28 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/17 19:47:17 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ bool	ft_stack_is_big(int size);
 /* FINDERS */
 int		ft_find_min(t_list *stack);
 int		ft_find_max(t_list *stack);
+int		ft_find_next_max(t_list *stack, int max);
 int		ft_find_node(t_list *stack, int to_find);
 int		ft_find_pos(t_list *stack, int pos_to_find);
 int		ft_find_middle(int size);
@@ -93,8 +94,9 @@ bool	ft_part_is_pushed(t_list *stack_a, int key);
 
 
 
-void	ft_push_max_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int max);
+void	ft_push_max_to_a(t_list **stack_a, t_list **stack_b, int *cnt, int max, int next_max);
 void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt);
+bool	ft_push_next_max(t_list **stack_a, t_list **stack_b, int *cnt, int next_max);
 
 /* CREATE KEY STACK AND FIND KEY ELEMENT*/
 t_list	*ft_create_key_stack(t_list *stack_a);

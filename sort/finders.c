@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/17 13:17:46 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 11:51:29 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,26 @@ int	ft_find_max(t_list *stack)
 		stack = stack->next;
 	}
 	return (max);
+}
+
+int	ft_find_next_max(t_list *stack, int max) //here problem! segfault!
+{
+	int	next_max;
+	
+	if (stack->nbr != max)
+		next_max = stack->nbr;
+	else
+	{
+		next_max = stack->next->nbr;
+		stack = stack->next;
+	}
+	while (stack != NULL)
+	{
+		if (stack->nbr > next_max && stack->nbr < max)
+			next_max = stack->nbr;
+		stack = stack->next;
+	}
+	return (next_max);
 }
 
 /*

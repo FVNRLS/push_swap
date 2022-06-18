@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:28:35 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 19:02:16 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 12:06:01 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	ft_stack_is_small(int size)
 */
 bool	ft_stack_is_medium(int size)
 {
-	if (size >= 10 && size <= 100)
+	if (size >= 11 && size <= 100)
 		return (true);
 	return (false);
 }
