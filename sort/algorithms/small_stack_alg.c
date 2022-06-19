@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:51:17 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 11:55:27 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/18 17:21:47 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_sort_small(t_list **stack_a, t_list **stack_b)
 /*
 	Find the min. number in stack a and push it to b.
 	Perform the operations, until only 3 elements in stack a are left.
-	
 */
 void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt)
 {
