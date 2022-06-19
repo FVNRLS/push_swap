@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:18:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 17:03:31 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:47:01 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,20 @@ int	ft_list_size(t_list *stack)
 
 int	ft_set_parting(int size)
 {
-	int		parts;
+	float	parts;
 
 	parts = 0;
 	if (ft_stack_is_medium(size) == true)
-		parts = 4;
-	if (size <= 20)
-		parts = 2;
+	{
+		if (size <= 25)
+			parts = 2;
+		else if (size <= 50)
+			parts = 4;
+		else if (size <= 75)
+			parts = 5;
+		else if (size <= 100)
+			parts = 5.2;
+	}
 	else if (ft_stack_is_big(size) == true)
 		parts = 14;
 	return (parts);

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 17:15:15 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 14:27:21 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	pa(t_list **stack_a, t_list **stack_b, int *cnt);
 void	pb(t_list **stack_a, t_list **stack_b, int *cnt);
 void	ra(t_list **stack, int *cnt);
 void	rb(t_list **stack, int *cnt);
-void	rr(t_list **stack_a, t_list **stack_b, int *cnt);
+void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack, int *cnt);
 void	rrb(t_list **stack, int *cnt);
 void	rrr(t_list **stack_a, t_list **stack_b, int *cnt);

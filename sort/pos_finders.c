@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 17:12:50 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 17:13:12 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:53:20 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_find_node(t_list *stack, int to_find)
 	int	pos;
 
 	if (!stack)
-		return (0);
+		return (1);
 	pos = 1;
 	while (stack != NULL)
 	{
@@ -31,7 +31,7 @@ int	ft_find_node(t_list *stack, int to_find)
 		stack = stack->next;
 		pos++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_find_middle(int size)
