@@ -6,13 +6,13 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 19:15:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 19:15:58 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 19:38:12 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 
-int	ft_atoi(const char *str, bool *error_flag)
+int	ft_atoi(const char *str, bool *error)
 {
 	int	i;
 	int	sign;
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str, bool *error_flag)
 			res = (str[i] - '0') + (res * 10);
 		else
 		{
-			*error_flag = true;
+			*error = true;
 			return (1);
 		}
 		i++;

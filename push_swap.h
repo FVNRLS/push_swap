@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 17:28:35 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 19:38:24 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,13 @@ void		ft_add_back(t_list **lst, t_list *new);
 void		ft_add_front(t_list **lst, t_list *new);
 void		ft_del_last(t_list **stack);
 void		ft_delete_stack(t_list **stack);
-
-
 /* ARGUMENTS MANAGEMENT (processing, checking)*/
 bool		ft_create_stack(int argc, char **argv, t_list **stack);
+/* ERROR MANAGEMENT */
 bool		ft_input_invalid(bool error_flag);
 bool		ft_duplicates_found(t_list *stack);
 
-/* TOOLS */
-unsigned int	ft_strlen(char *s);
-char			**ft_split(char *s, char c);
-int				ft_atoi(const char *str, bool *error_flag);
+
 
 /* INSCTRUCTIONS */
 void	sa(t_list **stack);
@@ -110,15 +106,17 @@ int		ft_find_next_key(t_list *key_stack, int parts, int move);
 int		ft_get_key(t_list **stack_a, t_list **key_stack, int parts, int move);
 
 
+/* TOOLS */
+unsigned int	ft_strlen(char *s);
+char			**ft_split(char *s, char c);
+int				ft_atoi(const char *str, bool *error);
 
-/* TESTING TODO: delete before submission!*/
-bool		ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv);
-void		printlist(t_list **stack_a, t_list **stack_b);
 void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 
 /*TODO: DELETE!!!*/
-# include "manage_nodes.c"
-# include "manage_args.c"
+# include "./argument_processors/manage_nodes.c"
+# include "./argument_processors/manage_args.c"
+# include "./argument_processors/error_managers.c"
 # include "./tools/ft_split.c"
 # include "./tools/ft_strlen.c"
 # include "./tools/ft_atoi.c"
