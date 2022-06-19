@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:43:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 15:08:42 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 17:18:39 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 	Shift up all elements of stack a by 1.
 	The first element becomes the last one.
 */
-void	ra(t_list **stack, int *cnt)
+void	ra(t_list **stack)
 {
 	t_list	*tmp;
 	
@@ -30,7 +30,6 @@ void	ra(t_list **stack, int *cnt)
 	tmp = NULL;
 	*stack = (*stack)->next;
 	write(1, "ra\n", 3);
-	*cnt += 1;
 }
 
 /*
@@ -39,7 +38,7 @@ void	ra(t_list **stack, int *cnt)
 	The first element becomes the last one.
 */
 
-void	rb(t_list **stack, int *cnt)
+void	rb(t_list **stack)
 {
 	t_list	*tmp;
 	
@@ -52,7 +51,6 @@ void	rb(t_list **stack, int *cnt)
 	tmp = NULL;
 	*stack = (*stack)->next;
 	write(1, "rb\n", 3);
-	*cnt += 1;
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 16:21:51 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 17:28:35 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ char			**ft_split(char *s, char c);
 int				ft_atoi(const char *str, bool *error_flag);
 
 /* INSCTRUCTIONS */
-void	sa(t_list **stack, int *cnt);
-void	sb(t_list **stack, int *cnt);
+void	sa(t_list **stack);
+void	sb(t_list **stack);
 void	ss(t_list **stack_a, t_list **stack_b);
-void	pa(t_list **stack_a, t_list **stack_b, int *cnt);
-void	pb(t_list **stack_a, t_list **stack_b, int *cnt);
-void	ra(t_list **stack, int *cnt);
-void	rb(t_list **stack, int *cnt);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack);
+void	rb(t_list **stack);
 void	rr(t_list **stack_a, t_list **stack_b);
-void	rra(t_list **stack, int *cnt);
-void	rrb(t_list **stack, int *cnt);
-void	rrr(t_list **stack_a, t_list **stack_b, int *cnt);
+void	rra(t_list **stack);
+void	rrb(t_list **stack);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 /* SORTING */
 /* LIST CHECKERS */
@@ -83,23 +83,23 @@ int		ft_set_parting(int size);
 
 /* ALGORITHMS */
 /* SMALL SIZE STACK SORT */
-int		ft_sort_small(t_list **stack_a, t_list **stack_b);
-void	ft_sort_last_3(t_list **stack, int *cnt);
-void	ft_sort_to_b(t_list **stack_a, t_list **stack_b, int *cnt);
-void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b, int *cnt);
+void	ft_sort_small(t_list **stack_a, t_list **stack_b);
+void	ft_sort_to_b(t_list **stack_a, t_list **stack_b);
+void	ft_sort_last_3(t_list **stack);
+void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b);
 /* MEDIUM/BIG SIZE STACK SORT */
-int		ft_sort_big(t_list **stack_a, t_list **stack_b);
-void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack, int *cnt);
-void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key);
-void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int nbr);
+void	ft_sort_big(t_list **stack_a, t_list **stack_b);
+void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack);
+void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int key);
+void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr);
 bool	ft_part_is_pushed(t_list *stack_a, int key);
 
 
-void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b,  int *cnt);
-void	ft_push_maxes(t_list **stack_a, t_list **stack_b, int *cnt, int max, int nmax);
-void	ft_push_nmax_over_top(t_list **stack_a, t_list **stack_b, int *cnt, int nmax);
-void	ft_push_nmax_over_bottom(t_list **stack_a, t_list **stack_b, int *cnt, int nmax);
-void	ft_push_max(t_list **stack_a, t_list **stack_b, int *cnt, int max, int mid);
+void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b);
+void	ft_push_maxes(t_list **stack_a, t_list **stack_b, int max, int nmax);
+void	ft_push_nmax_over_top(t_list **stack_a, t_list **stack_b, int nmax);
+void	ft_push_nmax_over_bottom(t_list **stack_a, t_list **stack_b, int nmax);
+void	ft_push_max(t_list **stack_a, t_list **stack_b, int max, int mid);
 
 
 
