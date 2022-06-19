@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 15:54:32 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:34:15 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int *cnt, int key)
 			rr(stack_a, stack_b);
 		else if (nbr == min)
 			rb(stack_b, cnt);
-			
 		tmp = tmp->next;
 		if (tmp == NULL)
 			tmp = *stack_a;

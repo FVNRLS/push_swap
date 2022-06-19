@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:32:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/18 17:18:30 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:09:45 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void	ft_push_maxes(t_list **stack_a, t_list **stack_b, int *cnt, int max, int nm
 	mid = ft_find_middle(size);
 	pos_max = ft_find_node(*stack_b, max);
 	pos_nmax = ft_find_node(*stack_b, nmax);
-	if ((pos_max <= mid) && (pos_nmax < mid) && (pos_nmax < pos_max) && pos_nmax != 0)
+	if ((pos_max <= mid) && (pos_nmax < mid) && (pos_nmax < pos_max))
 	{
 		ft_push_nmax_over_top(stack_a, stack_b, cnt, nmax);
 		mid--;
 		ft_push_max(stack_a, stack_b, cnt, max, mid);
 		sa(stack_a, cnt);
 	}
-	else if ((pos_max > mid) && (pos_nmax > mid) && (pos_nmax > pos_max) && pos_nmax != 0)
+	else if ((pos_max > mid) && (pos_nmax > mid) && (pos_nmax > pos_max))
 	{
 		ft_push_nmax_over_bottom(stack_a, stack_b, cnt, nmax);
 		mid--;

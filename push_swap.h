@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 14:27:21 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:21:51 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				ft_atoi(const char *str, bool *error_flag);
 /* INSCTRUCTIONS */
 void	sa(t_list **stack, int *cnt);
 void	sb(t_list **stack, int *cnt);
-void	ss(t_list **stack_a, t_list **stack_b, int *cnt);
+void	ss(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b, int *cnt);
 void	pb(t_list **stack_a, t_list **stack_b, int *cnt);
 void	ra(t_list **stack, int *cnt);
@@ -127,8 +127,7 @@ void		ft_check_sort(t_list *stack_a, t_list *stack_b);
 # include "./instructions/reverse_rotate.c"
 # include "testing_func.c"
 # include "./sort/list_checkers.c"
-# include "./sort/minmax_finders.c"
-# include "./sort/pos_finders.c"
+# include "./sort/finders.c"
 # include "./sort/counters.c"
 # include "./sort/algorithms/small_stack_alg.c"
 # include "./sort/algorithms/big_stack_alg.c"

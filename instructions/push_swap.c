@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 11:47:39 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:21:35 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,21 @@ void	sb(t_list **stack, int *cnt)
 /*
 	sa and sb at the same time.
 */
-void	ss(t_list **stack_a, t_list **stack_b, int *cnt)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	if (!*stack_a || !stack_a || !*stack_b || !stack_b)
 		return ;
-	sa(stack_a, cnt);
-	sb(stack_b, cnt);
+	int	tmp;
+	
+	if (!*stack_a || !stack_a || !(*stack_a)->next)
+		return ;
+	tmp = (*stack_a)->nbr;
+	(*stack_a)->nbr = (*stack_a)->next->nbr;
+	(*stack_a)->next->nbr = tmp;
+	tmp = (*stack_b)->nbr;
+	(*stack_b)->nbr = (*stack_b)->next->nbr;
+	(*stack_b)->next->nbr = tmp;
 	write(1, "ss\n", 3);
-	*cnt += 1;
 }
 
 /* 	Push a: 
