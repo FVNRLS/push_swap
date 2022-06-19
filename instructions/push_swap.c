@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 19:31:54 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/19 11:47:39 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sa(t_list **stack, int *cnt)
 {
 	int	tmp;
 	
-	if (!*stack || !stack)
+	if (!*stack || !stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
 	(*stack)->nbr = (*stack)->next->nbr;
@@ -39,7 +39,7 @@ void	sb(t_list **stack, int *cnt)
 {
 	int	tmp;
 	
-	if (!*stack || !stack)
+	if (!*stack || !stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
 	(*stack)->nbr = (*stack)->next->nbr;
