@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 19:38:24 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/20 16:39:45 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
-# include <stdio.h>
 
 # define DELIMETER ' '
 
@@ -38,6 +37,8 @@ bool		ft_create_stack(int argc, char **argv, t_list **stack);
 /* ERROR MANAGEMENT */
 bool		ft_input_invalid(bool error_flag);
 bool		ft_duplicates_found(t_list *stack);
+void		ft_check_num_range(long	res, bool *error);
+void		ft_check_invalid_chars(char *str,  bool *error);
 
 
 
@@ -109,27 +110,31 @@ int		ft_get_key(t_list **stack_a, t_list **key_stack, int parts, int move);
 /* TOOLS */
 unsigned int	ft_strlen(char *s);
 char			**ft_split(char *s, char c);
-int				ft_atoi(const char *str, bool *error);
-
-void		ft_check_sort(t_list *stack_a, t_list *stack_b);
+long			ft_atol(char *str, bool *error);
+bool			ft_is_digit(char c);
 
 /*TODO: DELETE!!!*/
-# include "./argument_processors/manage_nodes.c"
-# include "./argument_processors/manage_args.c"
+# include "./argument_processors/nodes_managers.c"
+# include "./argument_processors/argument_managers.c"
 # include "./argument_processors/error_managers.c"
-# include "./tools/ft_split.c"
-# include "./tools/ft_strlen.c"
-# include "./tools/ft_atoi.c"
+
+# include "./finders_and_counters/counters.c"
+# include "./finders_and_counters/key_number_finder.c"
+# include "./finders_and_counters/limit_finders.c"
+# include "./finders_and_counters/list_checkers.c"
+# include "./finders_and_counters/position_finders.c"
+
 # include "./instructions/push_swap.c"
 # include "./instructions/rotate.c"
 # include "./instructions/reverse_rotate.c"
-# include "testing_func.c"
-# include "./sort/list_checkers.c"
-# include "./sort/finders.c"
-# include "./sort/counters.c"
-# include "./sort/algorithms/small_stack_alg.c"
-# include "./sort/algorithms/big_stack_alg.c"
-# include "./sort/algorithms/key_number_alg.c"
-# include "./sort/sorters_stack_b.c"
+
+# include "./sorters/big_stack_sorter.c"
+# include "./sorters/small_stack_sorter.c"
+# include "./sorters/stack_b_sorter.c"
+
+# include "./tools/ft_split.c"
+# include "./tools/ft_strlen.c"
+# include "./tools/ft_atol.c"
+# include "./tools/ft_is_digit.c"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 19:57:50 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/20 16:17:53 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ int	main(int argc, char **argv)
 		ft_delete_stack(&stack_a);
 		return (1);
 	}
-	else if (ft_duplicates_found(stack_a) == true)
-	{
-		ft_delete_stack(&stack_a);
-		return (1);
-	}
 	size = ft_list_size(stack_a);
 	if (ft_stack_is_small(size) == true)
 		ft_sort_small(&stack_a, &stack_b);
@@ -40,6 +35,5 @@ int	main(int argc, char **argv)
 		ft_sort_big(&stack_a, &stack_b);
 	ft_delete_stack(&stack_a);
 	ft_delete_stack(&stack_b);
-	// system("leaks push_swap");
 	return (0);
 }

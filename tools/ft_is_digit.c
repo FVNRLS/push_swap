@@ -1,43 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_is_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 19:15:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 19:38:12 by rmazurit         ###   ########.fr       */
+/*   Created: 2022/06/20 13:20:41 by rmazurit          #+#    #+#             */
+/*   Updated: 2022/06/20 13:21:08 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 
-int	ft_atoi(const char *str, bool *error)
+bool	ft_is_digit(char c)
 {
-	int	i;
-	int	sign;
-	int	res;
-
-	i = 0;
-	sign = 1;
-	res = 0;
-	if (str[i] == '-')
-	{
-		sign *= (-1);
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0')
-	{
-		if (str[i] <= '9' && str[i] >= '0')
-			res = (str[i] - '0') + (res * 10);
-		else
-		{
-			*error = true;
-			return (1);
-		}
-		i++;
-	}
-	return (res * sign);
+	if (c >= '0' && c <= '9')
+		return (true);
+	return (false);	
 }

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 19:56:53 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/20 14:56:00 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ static void	ft_process_raw(int argc, char **argv, t_list **stack, bool *error)
 	i = 1;
 	while (i < argc)
 	{
-		if ((argv[i][0] == '-' || argv[i][0] == '+') && argv[i][1] == '\0')
-			*error = true;
-		val = ft_atoi(argv[i], error);
+		val = ft_atol(argv[i], error);
 		tmp = ft_new_node(val);
 		ft_add_back(stack, tmp);
 		i++;
@@ -58,18 +56,10 @@ static void	ft_process_split(char **argv, t_list **stack, bool *error)
 	i = 0;
 	while (split[i] != NULL)
 	{
-		if ((split[i][0] == '-' || split[i][0] == '+') && split[i][1] == '\0')
-			*error = true;
-		val = ft_atoi(split[i], error);
+		val = ft_atol(split[i], error);
 		tmp = ft_new_node(val);
 		ft_add_back(stack, tmp);
 		i++;
-	}
-	if (split[0] == NULL)
-	{
-		*error = true;
-		ft_free_split(split);
-		return ;
 	}
 	ft_free_split(split);
 }
@@ -79,15 +69,19 @@ bool	ft_create_stack(int argc, char **argv, t_list **stack)
 	bool	error;
 	
 	error = false;
-	if (argc > 2)
-		ft_process_raw(argc, argv, stack, &error);
-	else if (argc == 2)
+	if (argc == 2)
 		ft_process_split(argv, stack, &error);
-	else
+	else if (argc > 2)
+		ft_process_raw(argc, argv, stack, &error);
+	else if (argc == 1)
+		return (false);
+	if (argc == 2 && ft_list_size(*stack) == 0)
+		ft_check_invalid_chars(argv[1], &error);
+	if (ft_duplicates_found(*stack) == true)
+		error = true;
+	if (ft_input_invalid(error) == true)
 		return (false);
 	if (ft_list_size(*stack) == 1)
-		return (false);
-	if (ft_input_invalid(error) == true)
 		return (false);
 	return (true);
 }

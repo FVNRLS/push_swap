@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 12:03:11 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 15:41:09 by rmazurit         ###   ########.fr       */
+/*   Created: 2022/06/10 19:15:31 by rmazurit          #+#    #+#             */
+/*   Updated: 2022/06/20 16:13:30 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* The function takes a string as an argument and returns its length. 
-The returned value is an unsigned integer type. */
+#include <stdbool.h>
 
-unsigned int	ft_strlen(char *s)
+long	ft_atol(char *str, bool *error)
 {
-	unsigned int	i;
+	int		i;
+	long	sign;
+	long	res;
 
 	i = 0;
-	while (s[i] != '\0')
+	sign = 1;
+	res = 0;
+	if (str[i] == '-')
+	{
+		sign *= (-1);
 		i++;
-	return (i);
+	}
+	while (str[i] != '\0')
+	{
+		res = (str[i] - '0') + (res * 10);
+		i++;
+	}
+	res = res * sign;
+	ft_check_invalid_chars(str, error);
+	ft_check_num_range(res, error);
+	return (res);
 }
