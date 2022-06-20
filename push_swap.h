@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 16:39:45 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/20 18:31:01 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +132,9 @@ bool			ft_is_digit(char c);
 # include "./sorters/small_stack_sorter.c"
 # include "./sorters/stack_b_sorter.c"
 
-# include "./tools/ft_split.c"
-# include "./tools/ft_strlen.c"
 # include "./tools/ft_atol.c"
 # include "./tools/ft_is_digit.c"
+# include "./tools/ft_split.c"
+# include "./tools/ft_strlen.c"
 
 #endif
