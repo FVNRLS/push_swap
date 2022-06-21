@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:16:07 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 13:41:41 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:53:19 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 void	ch_rra(t_list **stack)
 {
 	t_list	*last;
-	
+
 	last = *stack;
 	while (last->next != NULL)
 		last = last->next;
@@ -39,7 +39,7 @@ void	ch_rra(t_list **stack)
 void	ch_rrb(t_list **stack)
 {
 	t_list	*last;
-	
+
 	last = *stack;
 	while (last->next != NULL)
 		last = last->next;
@@ -50,18 +50,19 @@ void	ch_rrb(t_list **stack)
 
 /*
 	Checker version. (Wthout writing the instruction to stdout)
+	Do both instructions:
+		rra and rrb
 */
 void	ch_rrr(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*last;
-	
+
 	last = *stack_a;
 	while (last->next != NULL)
 		last = last->next;
 	last = ft_new_node(last->nbr);
 	ft_add_front(stack_a, last);
 	ft_del_last(stack_a);
-
 	last = *stack_b;
 	while (last->next != NULL)
 		last = last->next;

@@ -6,14 +6,12 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:50:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 14:54:46 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:43:54 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "checker.h"
-
-//TODO: prichesat!
 
 /*
 	Compare the parsed instructions from stdin one by one against the standard.
@@ -51,20 +49,27 @@ static int	ft_apply_instructions(t_list **stack_a, t_list **stack_b, char *op)
 	return (EXIT_SUCCESS);
 }
 
-
-//TODO: rewrite free buf
+/*
+	Read by 1 byte from stdin and save the result into buffer.
+	Check the buffer for '\n'. 
+	If newline found 
+		-> compare the input with standard instructions.
+		If the EXIT_ERROR is returned from ft_apply_instructions()
+			-> return EXIT_ERROR
+	If return was successful -> continue with the next instruction.
+*/
 static int	ft_parse_instructions(t_list **stack_a, t_list **stack_b)
 {
-	int 	fd;
-	char	*buf;	
+	int		fd;
+	char	*buf;
 	int		i;
-	
+
 	fd = STDIN_FILENO;
 	buf = ft_calloc(5, sizeof(char));
 	i = 0;
 	while ((read(fd, &buf[i], 1)) != 0)
 	{
-		if (ft_nl_found(buf) == true)
+		if (ft_nl_found(buf))
 		{
 			if (ft_apply_instructions(stack_a, stack_b, buf) == EXIT_ERROR)
 			{
@@ -82,9 +87,23 @@ static int	ft_parse_instructions(t_list **stack_a, t_list **stack_b)
 	return (EXIT_SUCCESS);
 }
 
+/*
+	Takes as an argument the stack a formatted as a list of integers. 
+	If no argument is given, it stops and displays nothing. 
+	Waits and reads instructions on the standard input.
+	Once all the instructions have been read, executes them on the stack.
+	In case of error, displays "Error".
+	Error examples: 
+		some arguments are not integers
+		some arguments are bigger than an integer
+		there are duplicates
+		an instruction doesn’t exist and/or is incorrectly formatted.
+	If in the end the stack is sorted and the stack b is empty, displays "OK".
+	Otherwise, displays "KO".
+*/
 int	main(int argc, char **argv)
 {
-	t_list 	*stack_a;
+	t_list	*stack_a;
 	t_list	*stack_b;
 	int		res;
 
@@ -110,4 +129,3 @@ int	main(int argc, char **argv)
 	ft_delete_stack(&stack_b);
 	return (0);
 }
-

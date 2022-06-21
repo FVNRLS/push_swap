@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 13:39:42 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:50:49 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 void	ch_sa(t_list **stack)
 {
 	int	tmp;
-	
+
 	if (!*stack || !stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
@@ -38,7 +38,7 @@ void	ch_sa(t_list **stack)
 void	ch_sb(t_list **stack)
 {
 	int	tmp;
-	
+
 	if (!*stack || !stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
@@ -52,10 +52,8 @@ void	ch_sb(t_list **stack)
 */
 void	ch_ss(t_list **stack_a, t_list **stack_b)
 {
-	if (!*stack_a || !stack_a || !*stack_b || !stack_b)
-		return ;
 	int	tmp;
-	
+
 	if (!*stack_a || !stack_a || !(*stack_a)->next)
 		return ;
 	tmp = (*stack_a)->nbr;
@@ -75,7 +73,7 @@ void	ch_ss(t_list **stack_a, t_list **stack_b)
 void	ch_pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
-	
+
 	if (!*stack_b || !stack_b)
 		return ;
 	tmp = ft_new_node((*stack_b)->nbr);
@@ -95,7 +93,7 @@ void	ch_pa(t_list **stack_a, t_list **stack_b)
 void	ch_pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
-	
+
 	if (!*stack_a || !stack_a)
 		return ;
 	tmp = ft_new_node((*stack_a)->nbr);

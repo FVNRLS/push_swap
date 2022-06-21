@@ -6,23 +6,29 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:22:16 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 14:49:08 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:49:05 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
+	Free memory allocated to the buf.
+*/
 void	ft_free_buf(char **buf)
 {
 	free(*buf);
 	*buf = NULL;
 }
 
+/*
+	Replace all indexes of the buf with '\0'
+*/
 void	ft_reset_buf(char **buf)
 {
 	int		i;
-	char *tmp;
-	
+	char	*tmp;
+
 	tmp = *buf;
 	i = 0;
 	while (i < 4)
@@ -32,6 +38,11 @@ void	ft_reset_buf(char **buf)
 	}
 }
 
+/*
+	Compare the first n characters of 2 given strings character by character. 
+	If chars are equal in ASCII, return 0.
+	If there is a difference, return -1 or 1. 
+*/
 int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	unsigned int	i;
@@ -50,6 +61,10 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 	return (0);
 }
 
+/*
+	Allocate a specified number of bytes and fill them with '\n'.
+	Return the pointer with allocated memory.
+*/
 void	*ft_calloc(size_t count, size_t size)
 {
 	size_t	total;
@@ -69,6 +84,11 @@ void	*ft_calloc(size_t count, size_t size)
 	return (buf);
 }
 
+/*
+	Search foar a newline within the provided string.
+	If newline found, return true.
+	If no newline found, return false.
+*/
 bool	ft_nl_found(char *str)
 {
 	int	i;

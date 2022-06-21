@@ -6,20 +6,22 @@
 #    By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/14 17:29:32 by rmazurit          #+#    #+#              #
-#    Updated: 2022/05/27 11:16:15 by rmazurit         ###   ########.fr        #
+#    Updated: 2022/06/21 18:27:42 by rmazurit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 	= 		push_swap.a
+NAME 		= 		push_swap.a
 
-CC 		= 		gcc
+CC 			= 		gcc
 
-FLAGS	= 		-Wall -Wextra -Werror
+FLAGS		= 		-Wall -Wextra -Werror
 
-SRC 	= 		push_swap.c \
+SRC 		= 		push_swap.c \
 				
-
-				
+BONUS_SRC	=		./bonus/tools.c
+					./bonus/checker_instructions/checker_push_and_swap.c
+					./bonus/checker_instructions/checker_reverse_rotate.c
+					./bonus/checker_instructions/checker_rotate.c
 all: $(NAME)
 
 $(NAME): *.c
