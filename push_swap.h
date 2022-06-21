@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:22:37 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 18:31:01 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 10:49:34 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ bool			ft_is_digit(char c);
 # include "./finders_and_counters/list_checkers.c"
 # include "./finders_and_counters/position_finders.c"
 
-# include "./instructions/push_swap.c"
+# include "./instructions/push_and_swap.c"
 # include "./instructions/rotate.c"
 # include "./instructions/reverse_rotate.c"
 

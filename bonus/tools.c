@@ -6,11 +6,17 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:22:16 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 19:48:43 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 14:49:08 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_free_buf(char **buf)
+{
+	free(*buf);
+	*buf = NULL;
+}
 
 void	ft_reset_buf(char **buf)
 {
@@ -19,11 +25,29 @@ void	ft_reset_buf(char **buf)
 	
 	tmp = *buf;
 	i = 0;
-	while (tmp[i] != '\0')
+	while (i < 4)
 	{
 		tmp[i] = '\0';
 		i++;
 	}
+}
+
+int	ft_strncmp(char *s1, char *s2, size_t n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (((*s1 != '\0') || (*s2 != '\0')) && (i < n))
+	{
+		if (*s1 < *s2)
+			return (-1);
+		else if (*s1 > *s2)
+			return (1);
+		s1++;
+		s2++;
+		i++;
+	}
+	return (0);
 }
 
 void	*ft_calloc(size_t count, size_t size)

@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/15 16:58:57 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 11:49:35 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 	printlist(stack_a, stack_b); */
 
 	/* SORT CHECK */
-	ft_check_sort(*stack_a, *stack_b);
+	// ft_check_sort(*stack_a, *stack_b);
 
 	/* FIND MIN CHECK */
 	printf("\nThe min of STACK A:		%d", ft_find_min(*stack_a));
@@ -91,7 +91,7 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 	return (true);
 }
 
-void	printlist(t_list **stack_a, t_list **stack_b) //TODO: rewrite without printf!
+void	printlist(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;
@@ -123,10 +123,10 @@ void	printlist(t_list **stack_a, t_list **stack_b) //TODO: rewrite without print
 }
 
 
-void	ft_check_sort(t_list *stack_a, t_list *stack_b)
-{
-	if (ft_stack_sorted(stack_a) == true)
-		printf("Stack A is sorted\n");
-	if (ft_stack_sorted(stack_b) == true)
-		printf("Stack B is sorted\n");
-}
+// void	ft_check_sort(t_list *stack_a, t_list *stack_b)
+// {
+// 	if (ft_stack_sorted(stack_a) == true)
+// 		printf("Stack A is sorted\n");
+// 	if (ft_stack_sorted(stack_b) == true)
+// 		printf("Stack B is sorted\n");
+// }
