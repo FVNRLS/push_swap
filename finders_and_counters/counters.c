@@ -6,12 +6,15 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:18:45 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 16:32:12 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:43:35 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
+	Count the number of element in the stack.
+*/
 int	ft_list_size(t_list *stack)
 {
 	int	size;
@@ -27,6 +30,12 @@ int	ft_list_size(t_list *stack)
 	return (size);
 }
 
+/*
+	Choose the number of chunks to divide the stack in, depending on the
+	stack size.
+	The divisors were chosen empirically, after many different tests.
+	(Unfortunately there is no sophisticated formula behind it).
+*/
 int	ft_set_parting(int size)
 {
 	float	parts;

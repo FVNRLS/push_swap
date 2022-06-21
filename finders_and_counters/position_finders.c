@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 16:21:14 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 20:01:44 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ int	ft_find_node(t_list *stack, int to_find)
 	return (1);
 }
 
+/*
+	Find the middle of the stack.
+	Set the midle 1 step closer to the beginning of the stack.
+*/
 int	ft_find_middle(int size)
 {
 	int	mid;
-	
+
 	if (size % 2 == 0)
 		mid = (size / 2) + 1;
 	else
@@ -45,6 +49,9 @@ int	ft_find_middle(int size)
 	return (mid);
 }
 
+/*
+	Find the element on the position (provided as parameter) in the stack.
+*/
 int	ft_find_pos(t_list *stack, int pos_to_find)
 {
 	int	pos;

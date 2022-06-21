@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 10:55:58 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 20:06:51 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	sa(t_list **stack)
 {
 	int	tmp;
-	
+
 	if (!*stack || !stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
@@ -37,7 +37,7 @@ void	sa(t_list **stack)
 void	sb(t_list **stack)
 {
 	int	tmp;
-	
+
 	if (!*stack || !stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
@@ -51,10 +51,8 @@ void	sb(t_list **stack)
 */
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-	if (!*stack_a || !stack_a || !*stack_b || !stack_b)
-		return ;
 	int	tmp;
-	
+
 	if (!*stack_a || !stack_a || !(*stack_a)->next)
 		return ;
 	tmp = (*stack_a)->nbr;
@@ -73,12 +71,12 @@ void	ss(t_list **stack_a, t_list **stack_b)
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
-	
+
 	if (!*stack_b || !stack_b)
 		return ;
 	tmp = ft_new_node((*stack_b)->nbr);
 	ft_add_front(stack_a, tmp);
-	tmp = *stack_b;	//freeing the lost unused node
+	tmp = *stack_b;
 	free(tmp);
 	tmp = NULL;
 	*stack_b = (*stack_b)->next;
@@ -92,12 +90,12 @@ void	pa(t_list **stack_a, t_list **stack_b)
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
-	
+
 	if (!*stack_a || !stack_a)
 		return ;
 	tmp = ft_new_node((*stack_a)->nbr);
 	ft_add_front(stack_b, tmp);
-	tmp = *stack_a;	//freeing the lost unused node
+	tmp = *stack_a;
 	free(tmp);
 	tmp = NULL;
 	*stack_a = (*stack_a)->next;

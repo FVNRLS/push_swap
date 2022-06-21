@@ -6,50 +6,50 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 16:27:10 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 20:32:30 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_sort_big(t_list **stack_a, t_list **stack_b)
-{	
-	t_list	*key_stack;
-
-	if (ft_stack_sorted(*stack_a) == true)
-		return ;
-	ft_push_chunks_to_b(stack_a, stack_b, &key_stack);
-	ft_sort_to_b(stack_a, stack_b);
-	ft_sort_last_3(stack_a);
-	ft_sort_parts_to_a(stack_a, stack_b);
-	ft_delete_stack(&key_stack);
-}
-
-void	ft_push_chunks_to_b(t_list **stack_a, t_list **stack_b, t_list **key_stack)
+/*
+	Find 'nbr' in STACK A and push it to STACK B, based on instructions.
+	To push the element, do following:
+		1) Calculate the stack A size.
+		2) Calculate the middle of the stack, based on stack size
+		3) Find the node position in the stack.
+		4) Compare the position against the middle.
+			If pos <= mid -> rotate element to the top
+			If pos <= mid -> rotate element to the bottom
+		When the element reaches the position 0, push it to STACK B.
+*/
+static void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr)
 {
-	int		move;
-	int		parts;
-	int		key;
-	int		size;
-	
+	int	mid;
+	int	pos;
+	int	size;
+
 	size = ft_list_size(*stack_a);
-	parts = ft_set_parting(size);
-	move = 1;
-	key = ft_get_key(stack_a, key_stack, parts, move);
-	
-	ft_push_part_to_b(stack_a, stack_b, key);
-	move++;
-	if (ft_stack_sorted(*stack_a) == true)
-		return ;
-	while (move < parts)
+	mid = ft_find_middle(size);
+	pos = ft_find_node(*stack_a, nbr);
+	while (pos != 1)
 	{
-		key = ft_find_next_key(*key_stack, parts, move);
-		ft_push_part_to_b(stack_a, stack_b, key);
-		move++;
+		if (pos <= mid)
+			ra(stack_a);
+		else if (pos > mid)
+			rra(stack_a);
+		if (ft_stack_sorted(*stack_a) == true)
+			return ;
+		pos = ft_find_node(*stack_a, nbr);
 	}
+	pb(stack_a, stack_b);
 }
 
-void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int key)
+/*
+	Push all elements, which are smaller or equal to the key number (parameter)
+	to the STACK B, using function ft_push_element_to_b().
+*/
+static void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int key)
 {
 	t_list	*tmp;
 	int		nbr;
@@ -73,29 +73,40 @@ void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int key)
 	}
 }
 
-void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr)
+/*
+	Push all parts except the last to STACK B.
+	To identify the number of parts, set parting (depends on the stack size).
+	Leave the last part in STACK A, to push it in sorted form in the end.
+*/
+static void	ft_push_chunks_to_b(t_list **st_a, t_list **st_b, t_list **key_st)
 {
-	int	mid;
-	int	pos;
-	int	size;
-	
-	size = ft_list_size(*stack_a);
-	mid = ft_find_middle(size);
-	pos = ft_find_node(*stack_a, nbr);
-	while (pos != 1)
+	int		move;
+	int		parts;
+	int		key;
+	int		size;
+
+	size = ft_list_size(*st_a);
+	parts = ft_set_parting(size);
+	move = 1;
+	key = ft_get_key(st_a, key_st, parts, move);
+	ft_push_part_to_b(st_a, st_b, key);
+	move++;
+	if (ft_stack_sorted(*st_a) == true)
+		return ;
+	while (move < parts)
 	{
-		if (pos <= mid)
-			ra(stack_a);
-		else if (pos > mid)
-			rra(stack_a);
-		if (ft_stack_sorted(*stack_a) == true)
-			return ;
-		pos = ft_find_node(*stack_a, nbr);
+		key = ft_find_next_key(*key_st, parts, move);
+		ft_push_part_to_b(st_a, st_b, key);
+		move++;
 	}
-	pb(stack_a, stack_b);
 }
 
-bool	ft_part_is_pushed(t_list *stack_a, int key)
+/*
+	Check whether the part was pushed or not.
+	The indicator, that part was pushed is the abscence of numbers in the stack, 
+	which are smaller or equal to the key number.
+*/
+static bool	ft_part_is_pushed(t_list *stack_a, int key)
 {
 	while (stack_a->next != NULL)
 	{
@@ -104,4 +115,28 @@ bool	ft_part_is_pushed(t_list *stack_a, int key)
 		stack_a = stack_a->next;
 	}
 	return (true);
+}
+
+/*
+	Sorting algorithm for medium/big stack size.
+	Workflow:
+		1) Divide the stack in parts, depending on the stack size.
+		2) Push parts to STACK A, except the last one.
+			-> the smaller part will be on the bottom of the STACK B, then comes
+			a bigger part, than the more bigger and so on...
+		3) Sort the last part from STACK A to B
+		4) Sort last 3 elements on STACK A
+		5) Sort the pushed parts back from STACK A to B
+*/
+void	ft_sort_big(t_list **stack_a, t_list **stack_b)
+{	
+	t_list	*key_stack;
+
+	if (ft_stack_sorted(*stack_a) == true)
+		return ;
+	ft_push_chunks_to_b(stack_a, stack_b, &key_stack);
+	ft_sort_to_b(stack_a, stack_b);
+	ft_sort_last_3(stack_a);
+	ft_sort_parts_to_a(stack_a, stack_b);
+	ft_delete_stack(&key_stack);
 }

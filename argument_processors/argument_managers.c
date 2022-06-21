@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_args.c                                      :+:      :+:    :+:   */
+/*   argument_managers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 14:56:00 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:18:08 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
+	Process raw arguments (without quotation marks).
+	For each argument:
+		1) Create a new node.
+		2) Convert every argument into an long with atol()
+		3) Assign the number to the new node.
+		4) Add the new node to the end of the stack.
+*/
 static void	ft_process_raw(int argc, char **argv, t_list **stack, bool *error)
 {
-	int i;
-	int	val;
+	int		i;
+	int		val;
 	t_list	*tmp;
 
 	tmp = NULL;
@@ -29,10 +37,15 @@ static void	ft_process_raw(int argc, char **argv, t_list **stack, bool *error)
 	}
 }
 
+/*
+	Free the allocated memory from the split function.
+	Due to the split is a double-pointer (2D array), memory should be freed
+	for each index of the split result, as well as for the split itself.
+*/
 static void	ft_free_split(char **split)
 {
 	int		i;
-		
+
 	i = 0;
 	while (split[i] != NULL)
 	{
@@ -44,6 +57,15 @@ static void	ft_free_split(char **split)
 	split = NULL;
 }
 
+/*
+	Process arguments, included between quotation marks (so argc is 2).
+	Firstly split the input arguments with ft_split().
+	For each argument:
+		1) Create a new node.
+		2) Convert every argument into an long with atol()
+		3) Assign the number to the new node.
+		4) Add the new node to the end of the stack.
+*/
 static void	ft_process_split(char **argv, t_list **stack, bool *error)
 {
 	t_list	*tmp;
@@ -64,10 +86,21 @@ static void	ft_process_split(char **argv, t_list **stack, bool *error)
 	ft_free_split(split);
 }
 
+/*
+	Create STACK A, depending on the provided arguments and their number.
+	Don't create STACK A, if:
+		1) no arguments provided.
+		2) only 1 argument provided (and the arg is not included between " ").
+	Check if the input is invalid. Return error message, if:
+		1) Duplicates were found.
+		2) Input is not a digit (invalid characters).
+		3) input overflows the range of type int (arg > INT_MAX or arg < INT_MIN).
+	Return false in case, when errors were found. Otherwise - return true.
+*/
 bool	ft_create_stack(int argc, char **argv, t_list **stack)
 {
 	bool	error;
-	
+
 	error = false;
 	if (argc == 2)
 		ft_process_split(argv, stack, &error);

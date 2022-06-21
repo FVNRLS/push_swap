@@ -6,12 +6,18 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:35:18 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 15:41:18 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:28:21 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
+	Take the error - flag as argument.
+	If the flag is set to true -> input is invalid.
+		-> write arror message and return true.
+	Otherwise return false.
+*/
 bool	ft_input_invalid(bool error)
 {
 	if (error == true)
@@ -22,10 +28,18 @@ bool	ft_input_invalid(bool error)
 	return (false);
 }
 
-void	ft_check_invalid_chars(char *str,  bool *error)
+/* 
+	Check for invalid characters inside the provided unconverted argument.
+	Set error flag to true if:
+		1) len of the argument is more than 11 (MIN_INT len incl. '-' sign).
+		2) more than 1 minus sign was found.
+		3) The argument is not a digit.
+		4) No argument provided (string is empty).
+*/
+void	ft_check_invalid_chars(char *str, bool *error)
 {
-	int i;
-	
+	int	i;
+
 	if (ft_strlen(str) > 11)
 		*error = true;
 	i = 0;
@@ -43,18 +57,26 @@ void	ft_check_invalid_chars(char *str,  bool *error)
 		*error = true;
 }
 
-
-void	ft_check_num_range(long	res, bool *error)
+/*
+	Check if the calculated atol() result is in tolerant range of int type.
+	Set error-flag to true, if the number is out of range.
+*/
+void	ft_check_num_range(long res, bool *error)
 {
 	if (res < INT_MIN || res > INT_MAX)
 		*error = true;
 }
 
+/*
+	Loop through the created stack and compare each element with the others.
+	If equal elements found, set error-flag to true and return true.
+	Otherwise return false.
+*/
 bool	ft_duplicates_found(t_list *stack)
 {
 	t_list	*pos;
 	t_list	*next_node;
-	
+
 	pos = stack;
 	next_node = pos;
 	while (pos != NULL)

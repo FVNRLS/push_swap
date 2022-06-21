@@ -6,12 +6,16 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:28:35 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/19 12:13:13 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:54:53 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
+	Check if the stack is sorted in ascending order.
+	If yes - return true, otherwise return false.
+*/
 bool	ft_stack_sorted(t_list *stack)
 {
 	if (!stack->next || !stack)

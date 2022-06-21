@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:23:57 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 16:26:48 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:50:12 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 	Create a stack of the same number of elements as in stack a.
 	Copy the numbers from a to b (no push/swap instructions).
-	Return the  stack.
+	Return the stack.
 */
-t_list	*ft_create_key_stack(t_list *stack_a)
+static t_list	*ft_create_key_stack(t_list *stack_a)
 {
 	t_list	*key_stack;
 	t_list	*tmp;
-	
+
 	key_stack = NULL;
 	while (stack_a != NULL)
 	{
@@ -35,13 +35,13 @@ t_list	*ft_create_key_stack(t_list *stack_a)
 /*
 	Bubble sort of the key stack.
 */
-void	ft_sort_key_stack(t_list **key_stack)
+static void	ft_sort_key_stack(t_list **key_stack)
 {
 	t_list	*node;
 	int		i;
 	int		len;
 	int		tmp;
-	
+
 	node = *key_stack;
 	len = ft_list_size(*key_stack) - 1;
 	i = 0;
@@ -77,7 +77,7 @@ int	ft_find_next_key(t_list *key_stack, int parts, int move)
 	int	pos;
 	int	size;
 	int	key;
-	
+
 	size = ft_list_size(key_stack);
 	pos = size / parts;
 	pos *= move;
@@ -95,7 +95,7 @@ int	ft_find_next_key(t_list *key_stack, int parts, int move)
 int	ft_get_key(t_list **stack_a, t_list **key_stack, int parts, int move)
 {
 	int		key;
-	
+
 	*key_stack = ft_create_key_stack(*stack_a);
 	ft_sort_key_stack(key_stack);
 	key = ft_find_next_key(*key_stack, parts, move);
