@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:35:18 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/22 14:55:18 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 15:08:22 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	ft_input_invalid(bool error)
 {
 	if (error == true)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (true);
 	}
 	return (false);
