@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:16:46 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 16:17:53 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:52:16 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 int	main(int argc, char **argv)
 {
-	t_list 	*stack_a;
+	t_list	*stack_a;
 	t_list	*stack_b;
 	int		size;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ft_create_stack(argc, argv, &stack_a) == false)

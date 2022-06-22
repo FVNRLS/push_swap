@@ -6,11 +6,11 @@
 #    By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/14 17:29:32 by rmazurit          #+#    #+#              #
-#    Updated: 2022/06/21 20:08:26 by rmazurit         ###   ########.fr        #
+#    Updated: 2022/06/22 12:07:24 by rmazurit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		= 		push_swap.a
+NAME 		= 		push_swap
 
 CC 			= 		gcc
 
@@ -28,15 +28,14 @@ SRC 		= 		push_swap.c 											\
 					./instructions/push_and_swap.c							\
 					./instructions/rotate.c									\
 					./instructions/reverse_rotate.c							\
-					
-
-
-
-
-
-
-
-				
+					./sorters/big_stack_sorter.c							\
+					./sorters/small_stack_sorter.c							\
+					./sorters/stack_b_sorter.c								\
+					./tools/ft_atol.c										\
+					./tools/ft_is_digit.c									\
+					./tools/ft_split.c										\
+					./tools/ft_strlen.c										\
+	
 BONUS_SRC	=		./bonus/tools.c											\
 					./bonus/checker_instructions/checker_push_and_swap.c	\
 					./bonus/checker_instructions/checker_reverse_rotate.c	\
@@ -44,22 +43,19 @@ BONUS_SRC	=		./bonus/tools.c											\
 all: $(NAME)
 
 $(NAME): *.c
-	make -C ./libft
-	cp ./libft/libft.a $(NAME)
 	$(CC) $(FLAGS) -c $(SRC)
-	ar rc $(NAME) *.o
 
 clean:
-	rm -f ./libft/*.o
 	rm -f *.o
 
 fclean: clean
-	rm -f ./libft/libft.a
-	rm -f ./libft/*.o
 	rm -f $(NAME)
 
 re: fclean $(NAME)
 
-bonus: all
+bonus: $(NAME)
+	$(NAME): *.c
+	$(CC) $(FLAGS) -c $(SRC)
+	$(CC) $(FLAGS) -c $(BONUS_SRC)
 
 .PHONY: all clean fclean re bonus

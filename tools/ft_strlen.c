@@ -6,16 +6,18 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:03:11 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 15:41:09 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:58:24 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* The function takes a string as an argument and returns its length. 
 The returned value is an unsigned integer type. */
 
-unsigned int	ft_strlen(char *s)
+#include <stddef.h>
+
+size_t	ft_strlen(char *s)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
