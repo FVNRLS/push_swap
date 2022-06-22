@@ -6,18 +6,20 @@
 #    By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/14 17:29:32 by rmazurit          #+#    #+#              #
-#    Updated: 2022/06/22 12:07:24 by rmazurit         ###   ########.fr        #
+#    Updated: 2022/06/22 13:49:41 by rmazurit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= 		push_swap
+BONUS_NAME	=		checker
 
-CC 			= 		gcc
+CC 			= 		cc
 
 FLAGS		= 		-Wall -Wextra -Werror
 
-SRC 		= 		push_swap.c 											\
-					./argument_processors/nodes_managers.c					\
+PUSH_SWAP	=		push_swap.c 											\
+
+SRC 		= 		./argument_processors/argument_managers.c				\
 					./argument_processors/error_managers.c					\
 					./argument_processors/nodes_managers.c					\
 					./finders_and_counters/counters.c						\
@@ -36,26 +38,34 @@ SRC 		= 		push_swap.c 											\
 					./tools/ft_split.c										\
 					./tools/ft_strlen.c										\
 	
+CHECKER		=		checker.c												\
+
 BONUS_SRC	=		./bonus/tools.c											\
 					./bonus/checker_instructions/checker_push_and_swap.c	\
 					./bonus/checker_instructions/checker_reverse_rotate.c	\
 					./bonus/checker_instructions/checker_rotate.c			\
-all: $(NAME)
 
-$(NAME): *.c
-	$(CC) $(FLAGS) -c $(SRC)
+OBJ 		= 		${PUSH_SWAP:.c=.o} ${SRC:.c=.o}
+
+BONUS_OBJ	= 		${CHECKER:.c=.o} ${SRC:.c=.o} ${BONUS_SRC:.c=.o}
+
+${NAME}: ${OBJ}
+	${CC} ${FLAGS} ${OBJ} -o ${NAME}
+
+${BONUS_NAME}: ${BONUS_OBJ}
+	${CC} ${FLAGS} ${BONUS_OBJ} -o ${BONUS_NAME}
+
+all: ${NAME}
+
+bonus: ${BONUS_NAME}
 
 clean:
-	rm -f *.o
+	rm -f ${OBJ} ${BONUS_OBJ}
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f ${NAME} ${BONUS_NAME}
 
-re: fclean $(NAME)
+re: fclean all
 
-bonus: $(NAME)
-	$(NAME): *.c
-	$(CC) $(FLAGS) -c $(SRC)
-	$(CC) $(FLAGS) -c $(BONUS_SRC)
 
 .PHONY: all clean fclean re bonus

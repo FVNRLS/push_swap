@@ -6,11 +6,27 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 20:32:30 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:14:12 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/*
+	Check whether the part was pushed or not.
+	The indicator, that part was pushed is the abscence of numbers in the stack, 
+	which are smaller or equal to the key number.
+*/
+static bool	ft_part_is_pushed(t_list *stack_a, int key)
+{
+	while (stack_a->next != NULL)
+	{
+		if (stack_a->nbr <= key)
+			return (false);
+		stack_a = stack_a->next;
+	}
+	return (true);
+}
 
 /*
 	Find 'nbr' in STACK A and push it to STACK B, based on instructions.
@@ -99,22 +115,6 @@ static void	ft_push_chunks_to_b(t_list **st_a, t_list **st_b, t_list **key_st)
 		ft_push_part_to_b(st_a, st_b, key);
 		move++;
 	}
-}
-
-/*
-	Check whether the part was pushed or not.
-	The indicator, that part was pushed is the abscence of numbers in the stack, 
-	which are smaller or equal to the key number.
-*/
-static bool	ft_part_is_pushed(t_list *stack_a, int key)
-{
-	while (stack_a->next != NULL)
-	{
-		if (stack_a->nbr <= key)
-			return (false);
-		stack_a = stack_a->next;
-	}
-	return (true);
 }
 
 /*

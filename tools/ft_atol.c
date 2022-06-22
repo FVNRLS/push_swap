@@ -6,11 +6,11 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 19:15:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/20 16:13:30 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:16:18 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "../push_swap.h"
 
 long	ft_atol(char *str, bool *error)
 {

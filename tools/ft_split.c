@@ -6,9 +6,11 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 12:01:13 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/10 15:33:38 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:25:14 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../push_swap.h"
 
 /* Allocates memory with malloc() and returns an array of strings obtained by 
 splitting ’s’ using the character ’c’ as a delimiter. The array must end with 
@@ -17,7 +19,7 @@ Returns the array of new strings resulting from the split. NULL if the
 allocation fails. */
 
 //counts num of words in the string; set new_word flag to 1 if new word appears
-int	ft_count_words(char *str, char c)
+static int	ft_count_words(char *str, char c)
 {
 	int	i;
 	int	j;
@@ -43,7 +45,7 @@ int	ft_count_words(char *str, char c)
 }
 
 //copies and returns every word char by char from start to end
-char	*ft_copy_word(char *str, int start, int end)
+static char	*ft_copy_word(char *str, int start, int end)
 {
 	char	*word;
 	int		i;
@@ -62,11 +64,11 @@ char	*ft_copy_word(char *str, int start, int end)
 	return (word);
 }
 
-void	ft_split_string(char **split, char *s, char c)
+static void	ft_split_string(char **split, char *s, char c)
 {
-	unsigned int	i;
-	unsigned int	j;
-	int				new_word;
+	size_t	i;
+	size_t	j;
+	int		new_word;
 
 	i = 0;
 	j = 0;
