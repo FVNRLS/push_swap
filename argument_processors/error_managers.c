@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:35:18 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 19:28:21 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 14:55:18 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ bool	ft_input_invalid(bool error)
 
 /* 
 	Check for invalid characters inside the provided unconverted argument.
+	An '0' sign before a number will be ignored.
+	Also -0 is not considered as an error.
 	Set error flag to true if:
 		1) len of the argument is more than 11 (MIN_INT len incl. '-' sign).
 		2) more than 1 minus sign was found.
@@ -51,7 +53,7 @@ void	ft_check_invalid_chars(char *str, bool *error)
 			*error = true;
 		i++;
 	}
-	if (str[0] == '-' && (str[1] == '\0' || str[1] == '0'))
+	if (str[0] == '-' && str[1] == '\0')
 		*error = true;
 	if (str[0] == '\0')
 		*error = true;

@@ -6,15 +6,20 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:47:22 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 11:49:35 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:04:32 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+	THiS FILE CONTAINS ONLY FUNCTIONS FOR TESTING PURPOSES AND DOESN'T COUNT
+	TO THE PROJECT.
+*/
+
 #include "push_swap.h"
 
+//TEST FILL STACK B with equal size of numbers to test against stack a
 bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 {
-	//TEST FILL STACK B with equal size of numbers to test against stack a
 	t_list	*tmp;
 	if (ft_create_stack(argc, argv, stack_b) == false)
 		return (false);
@@ -86,11 +91,12 @@ bool	ft_test(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 	printf ("The position of the min:	%d\n",ft_find_node(*stack_a, ft_find_min(*stack_a)));
 
 	
-
-	// system("leaks a.out");
+	// LEAKS TEST
+	system("leaks a.out");
 	return (true);
 }
 
+//PRINT BOTH STACKS TO STDOUT
 void	printlist(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;
@@ -123,10 +129,11 @@ void	printlist(t_list **stack_a, t_list **stack_b)
 }
 
 
-// void	ft_check_sort(t_list *stack_a, t_list *stack_b)
-// {
-// 	if (ft_stack_sorted(stack_a) == true)
-// 		printf("Stack A is sorted\n");
-// 	if (ft_stack_sorted(stack_b) == true)
-// 		printf("Stack B is sorted\n");
-// }
+// CHECK IF THE STACK IS SORTED
+void	ft_check_sort(t_list *stack_a, t_list *stack_b)
+{
+	if (ft_stack_sorted(stack_a) == true)
+		printf("Stack A is sorted\n");
+	if (ft_stack_sorted(stack_b) == true)
+		printf("Stack B is sorted\n");
+}
