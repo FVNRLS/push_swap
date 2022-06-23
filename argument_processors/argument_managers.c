@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/21 19:18:08 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/23 10:35:21 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,11 @@ bool	ft_create_stack(int argc, char **argv, t_list **stack)
 	if (argc == 2 && ft_list_size(*stack) == 0)
 		ft_check_invalid_chars(argv[1], &error);
 	if (ft_duplicates_found(*stack) == true)
+	{
 		error = true;
-	if (ft_input_invalid(error) == true)
-		return (false);
+		ft_delete_stack(stack);
+		ft_error_message(error);
+	}
 	if (ft_list_size(*stack) == 1)
 		return (false);
 	return (true);

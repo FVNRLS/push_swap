@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:35:18 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/22 15:08:22 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/23 10:32:33 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@
 		-> write arror message and return true.
 	Otherwise return false.
 */
-bool	ft_input_invalid(bool error)
+void	ft_error_message(bool error)
 {
 	if (error == true)
 	{
 		write(2, "Error\n", 6);
-		return (true);
+		exit (1);
 	}
-	return (false);
 }
 
 /* 
@@ -45,18 +44,19 @@ void	ft_check_invalid_chars(char *str, bool *error)
 	if (ft_strlen(str) > 11)
 		*error = true;
 	i = 0;
+	if (str[0] == '\0')
+		*error = true;
+	if (str[i] == '-')
+		i++;
+	if (str[0] == '-' && str[1] == '\0')
+		*error = true;
 	while (str[i] != '\0')
 	{
-		if (str[i] == '-')
-			i++;
 		if (ft_is_digit(str[i]) == false)
 			*error = true;
 		i++;
 	}
-	if (str[0] == '-' && str[1] == '\0')
-		*error = true;
-	if (str[0] == '\0')
-		*error = true;
+	ft_error_message(*error);
 }
 
 /*
@@ -66,7 +66,10 @@ void	ft_check_invalid_chars(char *str, bool *error)
 void	ft_check_num_range(long res, bool *error)
 {
 	if (res < INT_MIN || res > INT_MAX)
+	{
 		*error = true;
+		ft_error_message(error);
+	}
 }
 
 /*

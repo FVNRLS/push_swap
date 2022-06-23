@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 19:15:31 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/22 12:16:18 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/23 10:23:42 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ long	ft_atol(char *str, bool *error)
 	i = 0;
 	sign = 1;
 	res = 0;
+	if (str[0] == '\0')
+		*error = true;
 	if (str[i] == '-')
 	{
 		sign *= (-1);
