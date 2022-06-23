@@ -6,7 +6,7 @@
 /*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 16:38:20 by rmazurit          #+#    #+#             */
-/*   Updated: 2022/06/22 12:14:12 by rmazurit         ###   ########.fr       */
+/*   Updated: 2022/06/23 10:58:57 by rmazurit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ static void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int key)
 		if (nbr <= key)
 			ft_push_element_to_b(stack_a, stack_b, nbr);
 		min = ft_find_min(*stack_b);
-		if (nbr == min && (*stack_a)->nbr > key)
-			rr(stack_a, stack_b);
-		else if (nbr == min)
+		if (nbr == min)
 			rb(stack_b);
 		tmp = tmp->next;
 		if (tmp == NULL)
