@@ -21,7 +21,7 @@ void	sa(t_list **stack)
 {
 	int	tmp;
 
-	if (!*stack || !stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
 	(*stack)->nbr = (*stack)->next->nbr;
@@ -38,7 +38,7 @@ void	sb(t_list **stack)
 {
 	int	tmp;
 
-	if (!*stack || !stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->nbr;
 	(*stack)->nbr = (*stack)->next->nbr;
@@ -53,7 +53,7 @@ void	ss(t_list **stack_a, t_list **stack_b)
 {
 	int	tmp;
 
-	if (!*stack_a || !stack_a || !(*stack_a)->next)
+	if (!*stack_a || !(*stack_a)->next)
 		return ;
 	tmp = (*stack_a)->nbr;
 	(*stack_a)->nbr = (*stack_a)->next->nbr;
@@ -72,32 +72,32 @@ void	pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	if (!*stack_b || !stack_b)
+	if (!*stack_b)
 		return ;
 	tmp = ft_new_node((*stack_b)->nbr);
 	ft_add_front(stack_a, tmp);
 	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
 	free(tmp);
 	tmp = NULL;
-	*stack_b = (*stack_b)->next;
 	write(1, "pa\n", 3);
 }
 
 /* 	Push b: 
 	Take the first element at the top of a and put it at the top of b.
-	Do nothing if a is empty. 
+	Do nothing if stack_a is empty.
 */
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	if (!*stack_a || !stack_a)
+	if (!*stack_a)
 		return ;
 	tmp = ft_new_node((*stack_a)->nbr);
 	ft_add_front(stack_b, tmp);
 	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
 	free(tmp);
 	tmp = NULL;
-	*stack_a = (*stack_a)->next;
 	write(1, "pb\n", 3);
 }

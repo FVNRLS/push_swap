@@ -14,7 +14,7 @@
 
 /*
 	Check whether the part was pushed or not.
-	The indicator, that part was pushed is the abscence of numbers in the stack, 
+	The indicator, that part was pushed is the absence of numbers in the stack,
 	which are smaller or equal to the key number.
 */
 static bool	ft_part_is_pushed(t_list *stack_a, int key)
@@ -39,6 +39,8 @@ static bool	ft_part_is_pushed(t_list *stack_a, int key)
 			If pos <= mid -> rotate element to the bottom
 		When the element reaches the position 0, push it to STACK B.
 */
+
+//TODO! here is the problem!!!!! with free in pb!!
 static void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr)
 {
 	int	mid;
@@ -59,6 +61,7 @@ static void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr)
 		pos = ft_find_node(*stack_a, nbr);
 	}
 	pb(stack_a, stack_b);
+	printf("node: %d\n", (*stack_a)->nbr);
 }
 
 /*
@@ -72,7 +75,6 @@ static void	ft_push_part_to_b(t_list **stack_a, t_list **stack_b, int key)
 	int		min;
 
 	tmp = *stack_a;
-	nbr = 0;
 	while (ft_part_is_pushed(*stack_a, key) == false)
 	{
 		nbr = tmp->nbr;
@@ -121,7 +123,7 @@ static void	ft_push_chunks_to_b(t_list **st_a, t_list **st_b, t_list **key_st)
 		1) Divide the stack in parts, depending on the stack size.
 		2) Push parts to STACK A, except the last one.
 			-> the smaller part will be on the bottom of the STACK B, then comes
-			a bigger part, than the more bigger and so on...
+			a bigger part, than the bigger and so on...
 		3) Sort the last part from STACK A to B
 		4) Sort last 3 elements on STACK A
 		5) Sort the pushed parts back from STACK A to B

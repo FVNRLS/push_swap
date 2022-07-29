@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 # define DELIMETER ' '
 

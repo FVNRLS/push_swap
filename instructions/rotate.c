@@ -21,14 +21,15 @@ void	ra(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (!*stack || !stack)
+	tmp = NULL;
+	if (!*stack)
 		return ;
 	tmp = ft_new_node((*stack)->nbr);
 	ft_add_back(stack, tmp);
 	tmp = *stack;
+	*stack = (*stack)->next;
 	free(tmp);
 	tmp = NULL;
-	*stack = (*stack)->next;
 	write(1, "ra\n", 3);
 }
 
@@ -42,14 +43,14 @@ void	rb(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (!*stack || !stack)
+	if (!*stack)
 		return ;
 	tmp = ft_new_node((*stack)->nbr);
 	ft_add_back(stack, tmp);
 	tmp = *stack;
+	*stack = (*stack)->next;
 	free(tmp);
 	tmp = NULL;
-	*stack = (*stack)->next;
 	write(1, "rb\n", 3);
 }
 
@@ -57,19 +58,19 @@ void	rr(t_list **stack_a, t_list **stack_b)
 {	
 	t_list	*tmp;
 
-	if (!*stack_a || !stack_a || !*stack_b || !stack_b)
+	if (!*stack_a || !*stack_b)
 		return ;
 	tmp = ft_new_node((*stack_a)->nbr);
 	ft_add_back(stack_a, tmp);
 	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
 	free(tmp);
 	tmp = NULL;
-	*stack_a = (*stack_a)->next;
 	tmp = ft_new_node((*stack_b)->nbr);
 	ft_add_back(stack_b, tmp);
 	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
 	free(tmp);
 	tmp = NULL;
-	*stack_b = (*stack_b)->next;
 	write(1, "rr\n", 3);
 }

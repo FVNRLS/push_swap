@@ -112,5 +112,4 @@ void	ft_sort_small(t_list **stack_a, t_list **stack_b)
 	if (ft_stack_sorted(*stack_a) == false)
 		ft_sort_last_3(stack_a);
 	ft_push_back_to_a(stack_a, stack_b);
-	return ;
 }
