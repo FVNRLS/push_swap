@@ -42,13 +42,20 @@ Example:
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
-  
+
 **Acknowledgments**
+
 Many thanks for support and patience to:
+  
   :heart_decoration: heleen [https://github.com/heleenoomen]
+  
 
 Great tester to validate the number of instructions:
+  
   https://github.com/lmalki-h/push_swap_tester
 
+
 Simple, but veru useful visualizer for thesoreting algorithm:
+
+
   https://pypi.org/project/push-swap-gui/
