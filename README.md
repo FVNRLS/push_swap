@@ -39,7 +39,9 @@ _Example_:
 
 <br>**Roadmap**
 
-:boom: Resolve segfault behaviour for big stack sizes on Linux machines.
+* :boom: Resolve segfault behaviour for big stack sizes on Linux machines.
+
+* Set parting of chunks according to mathematical formula.
 
 <br>**Contributing**
 
