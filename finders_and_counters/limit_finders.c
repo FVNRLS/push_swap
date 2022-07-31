@@ -13,7 +13,7 @@
 #include "../push_swap.h"
 
 /*
-	Find the smallest element in the stack and return it's value.
+	Find the smallest element in the stack and return its value.
 */
 int	ft_find_min(t_list *stack)
 {
@@ -32,7 +32,7 @@ int	ft_find_min(t_list *stack)
 }
 
 /*
-	Find the biggest element in the stack and return it's value.
+	Find the biggest element in the stack and return its value.
 */
 int	ft_find_max(t_list *stack)
 {
@@ -51,7 +51,7 @@ int	ft_find_max(t_list *stack)
 }
 
 /*
-	Find the next biggest element in the stack and return it's value.
+	Find the next biggest element in the stack and return its value.
 */
 int	ft_find_next_max(t_list *stack, int max)
 {

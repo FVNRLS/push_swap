@@ -32,7 +32,7 @@ t_list	*ft_new_node(int value)
 /*
 	Add the node to the end of the stack.
 	If the list doesn't exist yet, initialize the list with the node,
-	so the node becomes the first elemnt of the stack.
+	so the node becomes the first element of the stack.
 */
 void	ft_add_back(t_list **lst, t_list *new)
 {

@@ -18,7 +18,7 @@
 */
 bool	ft_stack_sorted(t_list *stack)
 {
-	if (!stack->next || !stack)
+	if (!stack->next)
 		return (false);
 	while (stack->next != NULL)
 	{

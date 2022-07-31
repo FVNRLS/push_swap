@@ -85,7 +85,7 @@ void	*ft_calloc(size_t count, size_t size)
 }
 
 /*
-	Search foar a newline within the provided string.
+	Search for a newline within the provided string.
 	If newline found, return true.
 	If no newline found, return false.
 */

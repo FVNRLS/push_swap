@@ -14,7 +14,7 @@
 
 /*
 	Find the max. element in the stack and move it to the top.
-	Either with rotate or with reverse-rotate instructions, dpeending on the
+	Either with rotate or with reverse-rotate instructions, depending on the
 	position, regarding the stack middle.
 */
 static void	ft_push_max(t_list **stack_a, t_list **stack_b, int max, int mid)
@@ -34,7 +34,7 @@ static void	ft_push_max(t_list **stack_a, t_list **stack_b, int max, int mid)
 }
 
 /*
-	Rotate STACK B, until the the next_max element is on the top position.
+	Rotate STACK B, until the next_max element is on the top position.
 	Then push the element back to STACK A.
 */
 static void	ft_push_nmax_ov_top(t_list **stack_a, t_list **stack_b, int nmax)
@@ -51,7 +51,7 @@ static void	ft_push_nmax_ov_top(t_list **stack_a, t_list **stack_b, int nmax)
 }
 
 /*
-	Reverse rotate STACK B, until the the next_max element is on the top pos.
+	Reverse rotate STACK B, until the next_max element is on the top pos.
 	Then push the element back to STACK A.
 */
 static void	ft_push_nmax_ov_bottom(t_list **stack_a, t_list **stack_b, int nmax)
@@ -112,7 +112,7 @@ static void	ft_push_maxes(t_list **stack_a, t_list **stack_b, int max, int nmax)
 /*
 	Sorting algorithm to sort the pushed chunks from STACK B to A.
 	Finds max and next max in the stack and calculates which to push first,
-	in order to perform less instructions.
+	in order to perform fewer instructions.
 	Repeats the operations until STACK B is empty.
 */
 void	ft_sort_parts_to_a(t_list **stack_a, t_list **stack_b)

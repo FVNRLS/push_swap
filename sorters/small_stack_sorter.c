@@ -22,7 +22,7 @@ static void	ft_push_back_to_a(t_list **stack_a, t_list **stack_b)
 }
 
 /*
-	Different cases for sorting of the last 3 eleemnts in STACK A:
+	Different cases for sorting of the last 3 elements in STACK A:
 	
 	case1 :	[2,1,3]	->	sa	->	[1,2,3].
 	case2 : [3,2,1]	->	sa	->	[2,3,1]	->	rra	->	[1,2,3].
@@ -59,7 +59,7 @@ void	ft_sort_last_3(t_list **stack)
 
 /*
 	Find the min. number in stack a and push it to b.
-	Pushing way depends on the elements posiition regarding the middle.
+	Pushing way depends on the elements position regarding the middle.
 	Perform the operations, until only 3 elements in stack a are left.
 */
 void	ft_sort_to_b(t_list **stack_a, t_list **stack_b)

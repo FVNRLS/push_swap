@@ -33,7 +33,7 @@ int	ft_list_size(t_list *stack)
 /*
 	Choose the number of chunks to divide the stack in, depending on the
 	stack size.
-	The divisors were chosen empirically, after many different tests.
+	The divisors were chosen empirically, after many tests.
 	(Unfortunately there is no sophisticated formula behind it).
 */
 int	ft_set_parting(int size)

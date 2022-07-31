@@ -13,7 +13,7 @@
 #include "../../push_swap.h"
 
 /*
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	Swap a.
 	Swap the first 2 elements at the top of stack a.
 	Do nothing if there is only one or no elements.	
@@ -30,7 +30,7 @@ void	ch_sa(t_list **stack)
 }
 
 /*
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	Swap b.
 	Swap the first 2 elements at the top of stack b.
 	Do nothing if there is only one or no elements.	
@@ -47,7 +47,7 @@ void	ch_sb(t_list **stack)
 }
 
 /*
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	sa and sb at the same time.
 */
 void	ch_ss(t_list **stack_a, t_list **stack_b)
@@ -65,7 +65,7 @@ void	ch_ss(t_list **stack_a, t_list **stack_b)
 }
 
 /* 	
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	Push a: 
 	Take the first element at the top of b and put it at the top of a.
 	Do nothing if b is empty. 
@@ -85,7 +85,7 @@ void	ch_pa(t_list **stack_a, t_list **stack_b)
 }
 
 /* 	
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	Push b: 
 	Take the first element at the top of a and put it at the top of b.
 	Do nothing if a is empty. 

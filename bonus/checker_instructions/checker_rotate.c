@@ -13,7 +13,7 @@
 #include "../../push_swap.h"
 
 /*
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	Rotate a: 
 	Shift up all elements of stack a by 1.
 	The first element becomes the last one.
@@ -33,7 +33,7 @@ void	ch_ra(t_list **stack)
 }
 
 /*
-	Checker version. (Wthout writing the instruction to stdout)
+	Checker version. (Without writing the instruction to stdout)
 	Rotate b: 
 	Shift up all elements of stack b by 1.
 	The first element becomes the last one.
@@ -54,7 +54,7 @@ void	ch_rb(t_list **stack)
 }
 
 /*
-	Checker version. (Wthout writing the instruction to stdout).
+	Checker version. (Without writing the instruction to stdout).
 	Do both instructions:
 		ra and rb
 */

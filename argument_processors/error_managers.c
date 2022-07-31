@@ -15,8 +15,8 @@
 /*
 	Take the error - flag as argument.
 	If the flag is set to true -> input is invalid.
-		-> write arror message and return true.
-	Otherwise return false.
+		-> write error message and return true.
+	Otherwise, return false.
 */
 void	ft_error_message(bool error)
 {
@@ -75,7 +75,7 @@ void	ft_check_num_range(long res, bool *error)
 /*
 	Loop through the created stack and compare each element with the others.
 	If equal elements found, set error-flag to true and return true.
-	Otherwise return false.
+	Otherwise, return false.
 */
 bool	ft_duplicates_found(t_list *stack)
 {

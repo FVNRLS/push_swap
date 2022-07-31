@@ -16,7 +16,7 @@
 	Process raw arguments (without quotation marks).
 	For each argument:
 		1) Create a new node.
-		2) Convert every argument into an long with atol()
+		2) Convert every argument into a long with atol()
 		3) Assign the number to the new node.
 		4) Add the new node to the end of the stack.
 */

@@ -36,7 +36,7 @@ int	ft_find_node(t_list *stack, int to_find)
 
 /*
 	Find the middle of the stack.
-	Set the midle 1 step closer to the beginning of the stack.
+	Set the middle 1 step closer to the beginning of the stack.
 */
 int	ft_find_middle(int size)
 {
