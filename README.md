@@ -1,5 +1,4 @@
 **About The Project**
-
 This project will make you sort data on a stack in ascending order, with a limited set of instructions, using the lowest possible number of actions. For sorting you can use only 2 stacks: Stack a and Stack b. The sorting depends on the stack size (different algorithms are used).
 If the stack could not be created (e.g. in case of invalid input), an error message message is returned.
 Otherwise, the return of the program are the instructions used for sorting.
