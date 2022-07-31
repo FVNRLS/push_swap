@@ -94,10 +94,10 @@ static int	ft_parse_instructions(t_list **stack_a, t_list **stack_b)
 	Once all the instructions have been read, executes them on the stack.
 	In case of error, displays "Error".
 	Error examples: 
-		some arguments are not integers
-		some arguments are bigger than an integer
-		there are duplicates
-		an instruction doesn’t exist and/or is incorrectly formatted.
+		- some arguments are not integers
+		- some arguments are bigger than an integer
+		- there are duplicates
+		- instruction does not exist and/or is incorrectly formatted.
 	If in the end the stack is sorted and the stack b is empty, displays "OK".
 	Otherwise, displays "KO".
 */

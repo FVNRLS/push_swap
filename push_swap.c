@@ -12,16 +12,6 @@
 
 #include "push_swap.h"
 
-/*
-	Sorting algorithm to sort a given stack of numbers in ascending order.
-	To sort it' only possible to use 2 stacks: stack a and stack b.
-	The stack itself is an linked list.
-	The sorting depends on the stack size -> different algorithms used.
-	If stack couldn't be created (eg. in case of invalid input), and error
-	message is returned.
-	Otherwise the return are the instructions, used for sorting.
-	In the end the both stacks will be freed, because of memory allocation.
-*/
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
