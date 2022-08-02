@@ -1,3 +1,5 @@
+#push_swap
+
 **About The Project**
 
 This project will make you sort data on a stack in ascending order, with a limited set of instructions, using the lowest possible number of actions. For sorting you can use only 2 stacks: Stack a and Stack b. The sorting depends on the stack size (different algorithms are used).
