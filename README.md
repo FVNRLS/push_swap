@@ -51,7 +51,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 * Many thanks for support and patience to: 
 
-    :heart_decoration: heleen [https://github.com/heleenoomen]
+    :heart_decoration: Heleen [https://github.com/heleenoomen]
 
 
 * Great tester to validate the number of instructions:
