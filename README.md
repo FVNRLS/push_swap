@@ -17,7 +17,7 @@ Otherwise, the return of the program are the instructions used for sorting.
 
 <br>**Prerequisites**
 
-* Installed C-Compiler like gcc, cc or clang.
+* Installed C compiler like gcc, cc or clang.
 
 
 <br>**Usage**
