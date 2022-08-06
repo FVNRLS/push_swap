@@ -40,7 +40,6 @@ static bool	ft_part_is_pushed(t_list *stack_a, int key)
 		When the element reaches the position 0, push it to STACK B.
 */
 
-//TODO! here is the problem!!!!! with free in pb!!
 static void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr)
 {
 	int	mid;
@@ -61,7 +60,6 @@ static void	ft_push_element_to_b(t_list **stack_a, t_list **stack_b, int nbr)
 		pos = ft_find_node(*stack_a, nbr);
 	}
 	pb(stack_a, stack_b);
-	printf("node: %d\n", (*stack_a)->nbr);
 }
 
 /*
