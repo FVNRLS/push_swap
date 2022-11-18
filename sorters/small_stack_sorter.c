@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   small_stack_sorter.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:51:17 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/22 10:44:29 by rmazurit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   stack_b_sorter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 17:32:30 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/22 11:45:15 by rmazurit         ###   ########.fr       */

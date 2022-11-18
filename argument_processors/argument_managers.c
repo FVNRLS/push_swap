@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   argument_managers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 12:40:30 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/23 10:35:21 by rmazurit         ###   ########.fr       */

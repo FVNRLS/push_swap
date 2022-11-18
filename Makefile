@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+         #
+#   By: rmazurit <rmazurit@student.42heilbronn.de>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/14 17:29:32 by rmazurit          #+#    #+#              #
 #    Updated: 2022/06/22 13:49:41 by rmazurit         ###   ########.fr        #

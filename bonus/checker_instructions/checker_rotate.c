@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   checker_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:43:45 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 18:55:11 by rmazurit         ###   ########.fr       */

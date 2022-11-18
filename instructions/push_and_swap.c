@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   push_and_swap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:34:31 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 20:06:51 by rmazurit         ###   ########.fr       */

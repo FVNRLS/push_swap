@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   counters.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:18:45 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 19:43:35 by rmazurit         ###   ########.fr       */

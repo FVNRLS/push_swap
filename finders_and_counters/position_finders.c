@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   position_finders.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 19:17:21 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 20:01:44 by rmazurit         ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:20:41 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/22 11:46:05 by rmazurit         ###   ########.fr       */

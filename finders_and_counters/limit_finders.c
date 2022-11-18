@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   limit_finders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:36:39 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 19:53:56 by rmazurit         ###   ########.fr       */

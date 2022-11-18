@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   key_number_finder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 19:23:57 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 19:50:12 by rmazurit         ###   ########.fr       */

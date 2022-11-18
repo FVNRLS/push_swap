@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   nodes_managers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmazurit <rmazurit@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rmazurit <rmazurit@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:31:06 by rmazurit          #+#    #+#             */
 /*   Updated: 2022/06/21 19:38:56 by rmazurit         ###   ########.fr       */
